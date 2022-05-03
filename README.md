@@ -3,17 +3,17 @@
 <h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">HOME</a></h1>
 <h1>✍ Planning</h1>
 <ul>
-    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%EA%B8%B0%ED%9A%8D%EC%84%9C">⌨ Planning Doc</a></li>
-    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%EC%99%80%EC%9D%B4%EC%96%B4-%ED%94%84%EB%A0%88%EC%9E%84">🎨 Wire Frame</a></li>
+    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%E2%8C%A8-Planning-Doc">⌨ Planning Doc</a></li>
+    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%F0%9F%8E%A8-Wire-Frame">🎨 Wire Frame</a></li>
 </ul>
 <h1>🚩 Process</h1>
 <ul>
     <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%F0%9F%A4%94-Team-TIL">🤔 Team TIL</a></li>
-    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%AD%ED%95%A0-%EB%B6%84%EB%B0%B0">🎭 Role</a></li>
+    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%F0%9F%8E%AD-Role">🎭 Role</a></li>
 </ul>
 
 <h1>👠 Ground Rule</h1>
 <ul>
-    <li><a href ="https://github.com/tunEmvegnomb/clone_instagram/wiki/%ED%8C%80-%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C-%EB%A3%B0">💻 Hard Skills</a></li>
-    <li><a href ="https://github.com/tunEmvegnomb/clone_instagram/wiki/%ED%8C%80-%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C-%EB%A3%B0">🙌 Soft Skills</a></li>
+    <li><a href ="https://github.com/tunEmvegnomb/clone_instagram/wiki/%F0%9F%91%A0-Ground-Rule">💻 Hard Skills</a></li>
+    <li><a href ="https://github.com/tunEmvegnomb/clone_instagram/wiki/%F0%9F%91%A0-Ground-Rule">🙌 Soft Skills</a></li>
 </ul>
