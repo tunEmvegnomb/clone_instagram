@@ -4,7 +4,7 @@
 <h1>✍ Planning</h1>
 <ul>
     <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%EA%B8%B0%ED%9A%8D%EC%84%9C">⌨ Planning Doc</a></li>
-    <li>🎨 Wire Frame</li>
+    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%EC%99%80%EC%9D%B4%EC%96%B4-%ED%94%84%EB%A0%88%EC%9E%84">🎨 Wire Frame</a></li>
 </ul>
 <h1>🚩 Process</h1>
 <ul>
