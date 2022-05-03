@@ -9,6 +9,7 @@
 <h1>🚩 Process</h1>
 <ul>
     <li>🤔 Team TIL</li>
+    <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%97%AD%ED%95%A0-%EB%B6%84%EB%B0%B0">🎭 Role</a></li>
 </ul>
 
 <h1>👠 Ground Rule</h1>
