@@ -2,10 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>team.homebody | clone_instagram</title>
+
+    <!--    local static files -->
+    <link rel="stylesheet" href="../static/css/main-header.css">
+    <!--    web libraries link -->
+    <script src="https://kit.fontawesome.com/bc43dde373.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <print> 점심시간</print>
-    황영상 커밋
+<header>
+    <!--1. 헤더-->
+    <!--헤더 전체로 나눠서 가독성 올리기-->
+
+    <!--            2. 헤더 내부 묶음-->
+    <!--    헤더에서 내부 전체를 묶는 용도-->
+    <div>
+        <!--            3. 내비게이션 바-->
+        <!--        nav 태그로 가독성 올리기-->
+        <nav>
+            <!--            4. 내비게이션 바 div-->
+            <!--        내비게이션 바의 크기, 안쪽/바깥 여백-->
+            <div class="nav_bar">
+                <!--            4.1 내비게이션 바 랩 flex div-->
+                <!--                내비게이션 바 하위 태그의 아이템을 가운데로 정렬-->
+                <div class="nav_wrap">
+                    <!--                5. 헤더 홈버튼 div-->
+                    <div class="homebtn_wrap">
+                        <!--                    5.1. 페이지를 이동할 주소가 들어간 a 태그-->
+                        <a href="/" tabindex="0" class="homebtn_a">
+                            <!--                        5.2. 아이콘과 검색까지의 간격을 나누는 flex div-->
+                            <div class="homebtn_flex">
+                                <!--                            5.3. 아이콘 이미지를 넣는 div-->
+                                <div class="homebtn_img_wrap">
+                                    <img alt="Instagram" class="homebtn_image"
+                                         src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!--                5. 헤더 검색 div-->
+                    <div class="searchbar_wrap">
+                        <!--                    5.1. 검색 아이콘, 글자 padding div-->
+                        <div>
+
+                            <!--                        5.2. 검색 input tag-->
+                            <input aria-label="입력 검색" autocapitalize="none" class="searchbar_input" placeholder="검색"
+                                   type="text">
+                            <!--                        5.2. 가짜 검색 absolute div-->
+                            <div class="searchbar_fake_input1">
+                                <!--                                5.3 가짜 검색 인풋 flex div-->
+                                <div class="searchbar_fake_input2">
+                                    <!--                                5.4. 검색 아이콘 i -->
+                                    <!--                                    <i class="fa-solid fa-magnifying-glass searchbar_icon"></i>-->
+                                    <!--                                5.4. 검색 이전 표시 span-->
+                                    <!--                                    <span class="searchbar_span">검색</span>-->
+                                </div>
+                            </div>
+
+
+                            <!--                        5.2. 검색 이 후 내용 지우기 아이콘 div-->
+                            <div>
+                                <i class="fa-solid fa-circle-xmark searchbar_close" style="display: none"></i>
+                            </div>
+                            <!--                        5.2. 최근 검색항목 div-->
+                            <div>
+                                <!--                            5.3. 최근 검색항목 뼈대 div-->
+                                <div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                5. 헤더 아이콘즈 div-->
+                    <div class="icons_wrap">
+                        <!--                    5.1. 아이콘 flex div-->
+                        <div class="icons_flex">
+                            <!--                        5.2 home 아이콘 div-->
+                            <div class="icons_div" style="margin: 0">
+                                <!--                            5.3 아이콘 이미지 svg-->
+                                <i class="fa-solid fa-house icons_icons fa-xl"></i>
+                            </div>
+                            <!--                        5.2 explore 아이콘 div-->
+                            <div class="icons_div">
+                                <!--                            5.3 아이콘 이미지 i-->
+                                <i class="fa-solid fa-paper-plane icons_icons fa-xl"></i>
+                            </div>
+                            <!--                        5.2 plus 아이콘 div-->
+                            <div class="icons_div">
+                                <!--                            5.3 아이콘 이미지 i-->
+                                <i class="fa-regular fa-square-plus icons_icons fa-xl"></i>
+                            </div>
+                            <!--                        5.2 compass 아이콘 div-->
+                            <div class="icons_div">
+                                <!--                            5.3 아이콘 이미지 i-->
+                                <i class="fa-regular fa-compass icons_icons fa-xl"></i>
+                            </div>
+                            <!--                        5.2 heart 아이콘 div-->
+                            <div class="icons_div">
+                                <!--                            5.3 아이콘 이미지 i-->
+                                <i class="fa-regular fa-heart icons_icons fa-xl"></i>
+                            </div>
+                            <!--                        5.2 profile 아이콘 div-->
+                            <div class="icons_div">
+                                <!--                            5.3 아이콘 이미지 i-->
+                                <i class="fa-solid fa-circle icons_icons fa-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </nav>
+    </div>
+
+</header>
 </body>
 </html>
