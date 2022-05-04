@@ -5,18 +5,15 @@
     <title>회원가입</title>
 
 
-
-
-
-
     <style>
 
-        *{
+        * {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             font-size: 14px;
             line-height: 18px;
         }
-        body{
+
+        body {
             background-color: rgba(var(--b3f, 250, 250, 250), 1);
 
         }
@@ -46,18 +43,19 @@
             position: relative;
         }
 
-        form{
+        form {
             max-width: 350px;
         }
 
         body, button, input, textarea {
-    color: #262626;
-    color: rgba(var(--i1d,38,38,38),1);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-}
-        #background_area{
+            color: #262626;
+            color: rgba(var(--i1d, 38, 38, 38), 1);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        #background_area {
             min-height: 100%;
             min-width: 0;
             margin-bottom: 44px;
@@ -68,33 +66,35 @@
             align-content: stretch;
         }
 
-        #vertical_area{
+        #vertical_area {
             flex-shrink: 0;
             justify-content: center;
             max-width: 350px;
             margin-top: 12px;
-            color: rgba(var(--i1d,38,38,38),1);
+            color: rgba(var(--i1d, 38, 38, 38), 1);
         }
-        .white_area{
-            background-color: rgba(var(--d87,255,255,255),1);
-border: 1px solid rgba(var(--b6a,219,219,219),1);
-    border-radius: 1px;
+
+        .white_area {
+            background-color: rgba(var(--d87, 255, 255, 255), 1);
+            border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+            border-radius: 1px;
             align-items: center;
         }
 
-        #upper_white_area{
+        #upper_white_area {
             height: 60vh;
             margin-top: 20px;
             margin-bottom: 20px;
         }
-        #insta_logo_box{
+
+        #insta_logo_box {
             margin-top: 60px;
             margin-bottom: 12px;
             justify-content: flex-start;
             cursor: pointer;
         }
 
-        #under_logo_area{
+        #under_logo_area {
             margin-bottom: 20px;
             height: 60%;
             justify-content: space-between;
@@ -104,143 +104,155 @@ border: 1px solid rgba(var(--b6a,219,219,219),1);
         }
 
 
-        h2{
+        h2 {
             color: #8e8e8e;
-    color: rgba(var(--f52,142,142,142),1);
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 20px;
-    margin: 0 40px 10px;
-    text-align: center;
+            color: rgba(var(--f52, 142, 142, 142), 1);
+            font-size: 17px;
+            font-weight: 600;
+            line-height: 20px;
+            margin: 0 40px 10px;
+            text-align: center;
         }
 
-        .input_area_big{
+        .input_area_big {
+            margin: 0 40px 0 40px;
 
         }
-        .input_area_small{
-                -webkit-box-align: center;
-    align-items: center;
-    -webkit-appearance: none;
-    background: rgba(var(--b3f,250,250,250),1);
-    border: 1px solid rgba(var(--ca6,219,219,219),1);
-    border-radius: 3px;
-    box-sizing: border-box;
-    color: rgba(var(--i1d,38,38,38),1);
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    font-size: 14px;
-    position: relative;
-    width: 100%;
+
+        .input_area_small {
+        {#-webkit-box-align: center;#} align-items: center;
+        {#-webkit-appearance: none;#} background: rgba(var(--b3f, 250, 250, 250), 1);
+            border: 1px solid rgba(var(--ca6, 219, 219, 219), 1);
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: rgba(var(--i1d, 38, 38, 38), 1);
+        {#-webkit-box-orient: horizontal;#}{#-webkit-box-direction: normal;#} flex-direction: row;
+            font-size: 14px;
+            position: relative;
+        {#width: 100%;#} margin: 0 40px 0 40px;
         }
 
 
-        form{
+        label {
+            display: flex;
+            height: 36px;
+            min-width: 0;
+            position: relative;
+
+        }
+
+        form {
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
-        .span_text{
-            color: rgba(var(--f52,142,142,142),1);
-    font-size: 12px;
-    height: 36px;
-    left: 8px;
-    line-height: 36px;
-    overflow: hidden;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    text-overflow: ellipsis;
-    -webkit-transform-origin: left;
-    user-select: none;
-    white-space: nowrap;
+
+        .span_text {
+            color: rgba(var(--f52, 142, 142, 142), 1);
+            font-size: 12px;
+            height: 36px;
+            left: 8px;
+            line-height: 36px;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            right: 0;
+            text-overflow: ellipsis;
+            user-select: none;
+            white-space: nowrap;
         }
 
-        input{
-                text-overflow: ellipsis;
+        input {
+            text-overflow: ellipsis;
+            font-size: 16px;
+            background: rgba(var(--b3f, 250, 250, 250), 1);
+            border: 0;
+            color: rgba(var(--i1d, 38, 38, 38), 1);
+            line-height: 18px;
+            width: 100%;
         }
 
 
-button{
-    background-color: rgba(var(--d69,0,149,246),1);
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: rgba(var(--eca,255,255,255),1);
-    position: relative;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 5px 9px;
-    text-align: center;
-    text-overflow: ellipsis;
-    text-transform: inherit;
-    user-select: none;
-    width: auto;
-}
+        button {
+            background-color: rgba(var(--d69, 0, 149, 246), 1);
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: rgba(var(--eca, 255, 255, 255), 1);
+            position: relative;
+            box-sizing: border-box;
+            cursor: pointer;
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 5px 9px;
+            text-align: center;
+            text-overflow: ellipsis;
+            text-transform: inherit;
+            user-select: none;
+            width: auto;
+        }
 
-.signup_btn_div{
-    margin-top: 8px;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 8px;
-    justify-content: flex-start;
-}
+        .signup_btn_div {
+            margin-top: 8px;
+            margin-right: 40px;
+            margin-left: 40px;
+            margin-bottom: 8px;
+            justify-content: flex-start;
+        }
 
-p{
-    color: rgba(var(--i1d,38,38,38),1);
-    font-size: 14px;
-    margin: 15px;
-    text-align: center;
-}
+        p {
+            color: rgba(var(--i1d, 38, 38, 38), 1);
+            font-size: 14px;
+            margin: 15px;
+            text-align: center;
+        }
 
-a{
-    text-decoration: none;
-    color: rgba(var(--d69,0,149,246),1);
-}
-#app_down_area{
-    flex-direction: row;
-    justify-content: center;
-    margin: 10px 0 10px 0;
-}
+        a {
+            text-decoration: none;
+            color: rgba(var(--d69, 0, 149, 246), 1);
+        }
 
-.appstore_img_a{
-    margin-right: 8px;
-    color: rgba(var(--fe0,0,55,107),1);
-}
+        #app_down_area {
+            flex-direction: row;
+            justify-content: center;
+            margin: 10px 0 10px 0;
+        }
 
-.appstore_img{
-    height: 40px;
-}
+        .appstore_img_a {
+            margin-right: 8px;
+            color: rgba(var(--fe0, 0, 55, 107), 1);
+        }
 
-footer{
-    background-color: rgba(var(--b3f,250,250,250),1);
-    padding-left: 16px;
-    padding-right: 16px;
-    {#position: fixed;#}
+        .appstore_img {
+            height: 40px;
+        }
 
-}
+        footer {
+            background-color: rgba(var(--b3f, 250, 250, 250), 1);
+            padding-left: 16px;
+            padding-right: 16px;
+        {#position: fixed;#}
 
-footer>div{
-    margin-bottom: 52px;
-    flex-direction: row;
-    justify-content: center;
-}
+        }
 
-footer>div div, footer>div a{
-    display: inline-block;
-}
+        footer > div {
+            margin-bottom: 52px;
+            flex-direction: row;
+            justify-content: center;
+        }
 
-footer>div a{
-    margin-right: 20px;
-    margin-left: 20px;
-    text-decoration: none;
-    color: rgba(var(--f52,142,142,142),1);
-}
+        footer > div div, footer > div a {
+            display: inline-block;
+        }
+
+        footer > div a {
+            margin-right: 20px;
+            margin-left: 20px;
+            text-decoration: none;
+            color: rgba(var(--f52, 142, 142, 142), 1);
+        }
     </style>
-
 
 
 </head>
@@ -250,7 +262,9 @@ footer>div a{
         <div id="vertical_area">
             <div class="white_area" id="upper_white_area">
                 <div id="insta_logo_box">
-                    <img alt="Instagram" class="s4Iyt" src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" srcset="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x">
+                    <img alt="Instagram" class="s4Iyt"
+                         src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png"
+                         srcset="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x">
                 </div>
                 <div id="under_logo_area">
                     <form method="post">
@@ -259,7 +273,8 @@ footer>div a{
                             <div class="input_area_small">
                                 <label>
                                     <span class="span_text">아이디</span>
-                                    <input aria-label="아이디" aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off" name="user_id" type="text">
+                                    <input aria-label="아이디" aria-required="true" autocapitalize="off" autocomplete="tel"
+                                           autocorrect="off" name="user_id" type="text">
                                 </label>
                             </div>
                         </div>
@@ -267,7 +282,8 @@ footer>div a{
                             <div class="input_area_small">
                                 <label>
                                     <span class="span_text">비밀번호</span>
-                                    <input aria-label="비밀번호" aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off" name="password" type="text">
+                                    <input aria-label="비밀번호" aria-required="true" autocapitalize="off"
+                                           autocomplete="tel" autocorrect="off" name="password" type="text">
                                 </label>
                             </div>
                         </div>
@@ -282,17 +298,24 @@ footer>div a{
             <div class="white_area">
                 <p>
                     계정이 있으신가요?
-                    <a data-testid="log-in-link" href="https://www.instagram.com/accounts/login/?source=auth_switcher" tabindex="0">로그인</a>
+                    <a data-testid="log-in-link" href="https://www.instagram.com/accounts/login/?source=auth_switcher"
+                       tabindex="0">로그인</a>
                 </p>
             </div>
-            <div >
+            <div>
                 <p class="b_nGN">앱을 다운로드하세요.</p>
                 <div id="app_down_area">
-                    <a aria-label="App Store에서 다운로드" class="appstore_img_a" href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo" tabindex="0">
-                    <img alt="App Store에서 다운로드" class="appstore_img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png">
+                    <a aria-label="App Store에서 다운로드" class="appstore_img_a"
+                       href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo"
+                       tabindex="0">
+                        <img alt="App Store에서 다운로드" class="appstore_img "
+                             src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png">
                     </a>
-                    <a aria-label="Google Play에서 다운로드" class="appstore_img_a" href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D0C1376CA-6996-4C00-9DBE-74D644F68BE8%26utm_content%3Dlo%26utm_medium%3Dbadge" tabindex="0">
-<img alt="Google Play에서 다운로드" class="appstore_img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png">
+                    <a aria-label="Google Play에서 다운로드" class="appstore_img_a"
+                       href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D0C1376CA-6996-4C00-9DBE-74D644F68BE8%26utm_content%3Dlo%26utm_medium%3Dbadge"
+                       tabindex="0">
+                        <img alt="Google Play에서 다운로드" class="appstore_img "
+                             src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png">
                     </a>
                 </div>
             </div>
@@ -301,18 +324,18 @@ footer>div a{
 
 </main>
 <footer>
-<div>
-    <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
+    <div>
         <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
-    <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
+            <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
+        </a>
+        <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
+            <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
+        </a>
+        <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
+            <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
+        </a>
 
-</div>
+    </div>
 </footer>
 </body>
 </html>
