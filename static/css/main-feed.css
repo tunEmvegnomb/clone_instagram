@@ -1,6 +1,6 @@
 
 
-div, nav, main, section, footer{
+main, section, footer{
     display: flex;
     position: relative;
     box-sizing: border-box;
