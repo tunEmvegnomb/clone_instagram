@@ -1,0 +1,72 @@
+/**/
+/**/
+/* 2. 바디 > 메인 파트 */
+/**/
+/**/
+
+/* 메인태그 */
+main {
+    max-width: 935px;
+    /*background-color: darkred;*/
+    height: 3000px;
+    margin: 90px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+/* 메인태그 > 스토리카드 부분 */
+.field_story {
+    /*background-color: #ff7a7a;*/
+    width: 614px;
+    height: 2000px;
+    margin-right: 28px;
+}
+
+/* 스토리 필드 > 프레젠테이션 부분 */
+.wrap_presentation {
+    background-color: #fff;
+    width: 614px;
+    height: 119px;
+    box-sizing: border-box;
+    padding: 16px 0;
+
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+/* 스토리 필드 > 스토리카드 부분 */
+.wrap_storycards {
+    /*background-color: #fff;*/
+    width: 614px;
+    height: 1053px;
+    margin-top: 24px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+}
+
+/* 스토리카드 > 탑 부분 */
+.storycards_top {
+    background-color: #fff;
+    width: 614px;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    /*border: 1px solid #dbdbdb;*/
+    box-shadow:  0 4px 2px -2px gray;
+}
+
+/* 스토리카드 > 미들 부분 */
+.storycards_middle {
+    /*background-color: #62ffc6;*/
+    width: 614px;
+    height: 767.5px;
+}
+
+/* 스토리카드 > 바텀 부분 */
+.storycards_bottom {
+    /*background-color: #15993a;*/
+    width: 614px;
+    height: 213px;
+}
+
+

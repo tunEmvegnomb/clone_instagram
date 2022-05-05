@@ -1,11 +1,12 @@
     // ...버튼 누르면 모달창 켜짐
 const modal = document.getElementById("my-modal-bg");
-const btnModal_1 = document.getElementById("my-modal-active-btn_1");
+const btnModal_1 = document.getElementsByClassName("open-modal");
 // const btnModal_2 = document.getElementById("my-modal-active-btn_2");
 // const btnModal_3 = document.getElementById("my-modal-active-btn_3");
 
-btnModal_1.addEventListener("click", e => {
-    modal.style.display = "flex";
+btnModal_1[0].addEventListener("click", e => {
+    console.log(modal)
+    modal.style.display="flex";
     document.querySelector('body').classList.add('no-scroll');
 });
 // btnModal_2.addEventListener("click", e => {

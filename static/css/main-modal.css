@@ -1,0 +1,75 @@
+#my-modal-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s;
+}
+
+#my-modal-active-btn_1{
+    cursor: pointer;
+}
+
+.my-modal-case, #my-modal-case{
+    width: 260px;
+    flex-shrink: 1;
+    justify-content: center;
+    max-height: calc(100% - 40px);
+    flex-direction: column;
+    align-items: stretch;
+    position: relative;
+}
+@media (min-width: 736px) {
+    .my-modal-case , #my-modal-case{
+        width: 400px;
+    }
+}
+
+.my-modal, #my-modal {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 12px;
+    max-height: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.my-modal-btn {
+    background-color: transparent;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 48px;
+    padding: 8px;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+    display: inline-block;
+    border: 0;
+    border-top: 1px solid rgba(var(--b6a,219,219,219),1);
+}
+
+.btn1 {
+    color: rgba(237,73,86,1);
+    font-weight: 700;
+    border: 0;
+}
+.btn2 {
+    color: rgba(237,73,86,1);
+    font-weight: 700;
+}
+.no-scroll {
+    overflow: hidden;
+}
