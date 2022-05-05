@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="../static/css/main_feed.css">
     <link rel="stylesheet" href="../static/css/main-footer.css">
     <link rel="stylesheet" href="../static/css/main-modal.css">
-
-
+    <script src="../static/js/main-openmodal.js"></script>
 
 </head>
 <body>
@@ -205,7 +204,7 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40 open-modal"></i>
+                        <i class="fa-solid fa-ellipsis s40 open-modal1" onclick="get_modal_num(1)"></i>
                     </div>
                 </div>
             </div>
@@ -385,7 +384,7 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40"></i>
+                        <i class="fa-solid fa-ellipsis s40 open-modal2" onclick="get_modal_num(2)"></i>
                     </div>
                 </div>
             </div>
@@ -564,7 +563,7 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40"></i>
+                        <i class="fa-solid fa-ellipsis s40 open-modal3" onclick="get_modal_num(3)"></i>
                     </div>
                 </div>
             </div>
@@ -882,13 +881,19 @@
             <button class="my-modal-btn btn4">공유 대상...</button>
             <button class="my-modal-btn btn5">링크 복사</button>
             <button class="my-modal-btn btn6">퍼가기</button>
-            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7">취소</button>
+            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소</button>
         </div>
     </div>
 </div>
-<script src="../static/js/main-openmodal.js">
 
-</script>
+<div class="background">
+    <div class="window">
+        <div class="popup"></div>
+    </div>
+</div>
+
+<script src="../static/js/main-openmodal.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
