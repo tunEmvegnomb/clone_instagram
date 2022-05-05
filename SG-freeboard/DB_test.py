@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 doc = {
     "user_id": "Paul",
     "hashed_password": "Miller",
@@ -9,7 +12,7 @@ doc = {
             "time": 1973,
             "url": "http://www.naver.com",
             "feed_text": "가나다라마바사",
-            "like": 10,
+            "like": 10, # 혹은 리스트의 개수를 세는 방식
             "like_ids": [1, 3, 5],
             "replies": [
                 {
@@ -30,3 +33,7 @@ doc = {
         }
     ]
 }
+
+
+df = pd.DataFrame(doc)
+print(df)
