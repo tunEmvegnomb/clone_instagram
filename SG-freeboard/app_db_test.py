@@ -23,7 +23,7 @@ def open_homepage():
 # all_orders = list(db.orders.find({}))
 
 
-@app.route('/sign_up', methods=['GET'])
+@app.route('/sign_up', methods=['POST'])
 def sign_up():
     user_id = request.form['user_id']
     password = request.form['password']
@@ -37,9 +37,10 @@ def sign_up():
         "follow": [],
         "follower": [],
         "posts": []
-}
+    }
 
     db.insta_users.insert_one(doc)
+    print("success")
 
     return jsonify({"result": "success"})
 
@@ -48,7 +49,6 @@ def sign_up():
 def log_in():
     user_id = request.form['user_id']
     password = request.form['password']
-
 
     # 회원가입 때와 같은 방법으로 pw를 암호화합니다.
     hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
@@ -70,6 +70,7 @@ def log_in():
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
+
 # wip 토큰을 만료시키는것은 어려움
 # @app.route('/log_out', method=['POST'])
 # def log_out():
@@ -78,7 +79,7 @@ def log_in():
 #     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 #     user_id = payload['user_id']
 
-    # return jsonify({"result": "success", "all_orders": orders})
+# return jsonify({"result": "success", "all_orders": orders})
 
 
 @app.route('/create_post', methods=['POST'])
