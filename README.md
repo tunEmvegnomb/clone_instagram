@@ -36,7 +36,7 @@
 <h5>로그인 페이지</h2>
 <h5>회원가입 페이지</h2>
 
-<h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">👠Github Wiki</a></h1>
+<h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">Github Wiki</a></h1>
 <h1>✍ Planning</h1>
 <ul>
     <li><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki/%E2%8C%A8-Planning-Doc">⌨ Planning Doc</a></li>
