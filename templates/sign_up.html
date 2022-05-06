@@ -1,318 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-
-
-
-
+  <title>instagram sign-up</title>
     <style>
-
-        *{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            line-height: 18px;
-        }
         body{
-            background-color: rgba(var(--b3f, 250, 250, 250), 1);
-
+            background-color: #FAFAFA
         }
 
-        div, main, footer {
-            -webkit-box-align: stretch;
-            -webkit-align-items: stretch;
-            -ms-flex-align: stretch;
-            align-items: stretch;
-            border: 0 solid #000;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
+        .body2{
             display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
             flex-direction: column;
-            -webkit-flex-shrink: 0;
-            -ms-flex-negative: 0;
-            flex-shrink: 0;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-
-        form{
-            max-width: 350px;
-        }
-
-        body, button, input, textarea {
-    color: #262626;
-    color: rgba(var(--i1d,38,38,38),1);
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 18px;
-}
-        #background_area{
-            min-height: 100%;
-            min-width: 0;
-            margin-bottom: 44px;
-            overflow: hidden;
             justify-content: center;
-            flex-direction: row;
             align-items: center;
-            align-content: stretch;
+            width: 100%;
+
         }
 
-        #vertical_area{
-            flex-shrink: 0;
-            justify-content: center;
-            max-width: 350px;
-            margin-top: 12px;
-            color: rgba(var(--i1d,38,38,38),1);
-        }
-        .white_area{
-            background-color: rgba(var(--d87,255,255,255),1);
-border: 1px solid rgba(var(--b6a,219,219,219),1);
-    border-radius: 1px;
-            align-items: center;
+        .mainbox{
+            padding: 20px;
+            text-align: center;
+            border: solid 1px rgba(219, 219, 219, 1);
+            width: 400px;
+            height: 550px;
+            margin-top: 50px;
+            background-color: white
+
         }
 
-        #upper_white_area{
-            height: 60vh;
+        .instalogo{
+
+            padding: 30px 30px 10px 30px;
+        }
+        .instalogo > img{
+            width:200px;
+        }
+
+        .suggestsignup{
+            font-weight: bold;
+            color: gray;
             margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        #insta_logo_box{
-            margin-top: 60px;
-            margin-bottom: 12px;
-            justify-content: flex-start;
-            cursor: pointer;
-        }
-
-        #under_logo_area{
-            margin-bottom: 20px;
-            height: 60%;
-            justify-content: space-between;
-            margin-top: 10px;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-
-
-        h2{
-            color: #8e8e8e;
-    color: rgba(var(--f52,142,142,142),1);
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 20px;
-    margin: 0 40px 10px;
-    text-align: center;
-        }
-
-        .input_area_big{
 
         }
-        .input_area_small{
-                -webkit-box-align: center;
-    align-items: center;
-    -webkit-appearance: none;
-    background: rgba(var(--b3f,250,250,250),1);
-    border: 1px solid rgba(var(--ca6,219,219,219),1);
-    border-radius: 3px;
-    box-sizing: border-box;
-    color: rgba(var(--i1d,38,38,38),1);
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    font-size: 14px;
-    position: relative;
-    width: 100%;
+
+        .IDBox>div{
+            height: 24px;
+            color: gray;
+            margin-top: 30px;
+        }
+        .IDbox>label{
+            font-size: 15px;
+            padding: 4px 10px;
         }
 
-
-        form{
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .span_text{
-            color: rgba(var(--f52,142,142,142),1);
-    font-size: 12px;
-    height: 36px;
-    left: 8px;
-    line-height: 36px;
-    overflow: hidden;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    text-overflow: ellipsis;
-    -webkit-transform-origin: left;
-    user-select: none;
-    white-space: nowrap;
+        .pwbox {
+            font-size: 14px;
+            height: 24px;
+            margin-top: 30px;
+            padding: 4px 10px;
         }
 
-        input{
-                text-overflow: ellipsis;
+        .signupbutton{
+            margin-top: 50px;
         }
 
+        .loginbox{
+            background-color: white;
+            width: 400px;
+            height: 80px;
+            margin-top: 14px;
+            border: solid 1px rgba(219, 219, 219, 1);
+            text-align: center;
 
-button{
-    background-color: rgba(var(--d69,0,149,246),1);
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: rgba(var(--eca,255,255,255),1);
-    position: relative;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 5px 9px;
-    text-align: center;
-    text-overflow: ellipsis;
-    text-transform: inherit;
-    user-select: none;
-    width: auto;
-}
+        }
 
-.signup_btn_div{
-    margin-top: 8px;
-    margin-right: 40px;
-    margin-left: 40px;
-    margin-bottom: 8px;
-    justify-content: flex-start;
-}
+        p{
+            text-align: center;
+        }
 
-p{
-    color: rgba(var(--i1d,38,38,38),1);
-    font-size: 14px;
-    margin: 15px;
-    text-align: center;
-}
+        a{
+            color: cornflowerblue;
+        }
 
-a{
-    text-decoration: none;
-    color: rgba(var(--d69,0,149,246),1);
-}
-#app_down_area{
-    flex-direction: row;
-    justify-content: center;
-    margin: 10px 0 10px 0;
-}
-
-.appstore_img_a{
-    margin-right: 8px;
-    color: rgba(var(--fe0,0,55,107),1);
-}
-
-.appstore_img{
-    height: 40px;
-}
-
-footer{
-    background-color: rgba(var(--b3f,250,250,250),1);
-    padding-left: 16px;
-    padding-right: 16px;
-    {#position: fixed;#}
-
-}
-
-footer>div{
-    margin-bottom: 52px;
-    flex-direction: row;
-    justify-content: center;
-}
-
-footer>div div, footer>div a{
-    display: inline-block;
-}
-
-footer>div a{
-    margin-right: 20px;
-    margin-left: 20px;
-    text-decoration: none;
-    color: rgba(var(--f52,142,142,142),1);
-}
     </style>
-
-
-
 </head>
-<body>
-<main>
-    <div id="background_area">
-        <div id="vertical_area">
-            <div class="white_area" id="upper_white_area">
-                <div id="insta_logo_box">
-                    <img alt="Instagram" class="s4Iyt" src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png" srcset="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png 2x">
-                </div>
-                <div id="under_logo_area">
-                    <form method="post">
-                        <h2 id="greeting_text">친구들의 사진과 동영상을 보려면 가입하세요</h2>
-                        <div class="input_area_big">
-                            <div class="input_area_small">
-                                <label>
-                                    <span class="span_text">아이디</span>
-                                    <input aria-label="아이디" aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off" name="user_id" type="text">
-                                </label>
-                            </div>
-                        </div>
-                        <div class="input_area_big">
-                            <div class="input_area_small">
-                                <label>
-                                    <span class="span_text">비밀번호</span>
-                                    <input aria-label="비밀번호" aria-required="true" autocapitalize="off" autocomplete="tel" autocorrect="off" name="password" type="text">
-                                </label>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="signup_btn_div">
-                                <button class="sqdOP  L3NKy   y3zKF     " disabled="" type="submit">가입</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="white_area">
-                <p>
-                    계정이 있으신가요?
-                    <a data-testid="log-in-link" href="https://www.instagram.com/accounts/login/?source=auth_switcher" tabindex="0">로그인</a>
-                </p>
-            </div>
-            <div >
-                <p class="b_nGN">앱을 다운로드하세요.</p>
-                <div id="app_down_area">
-                    <a aria-label="App Store에서 다운로드" class="appstore_img_a" href="https://itunes.apple.com/app/instagram/id389801252?pt=428156&amp;ct=igweb.loginPage.badge&amp;mt=8&amp;vt=lo" tabindex="0">
-                    <img alt="App Store에서 다운로드" class="appstore_img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_korean-ko.png/4a5c9d62d51b.png">
-                    </a>
-                    <a aria-label="Google Play에서 다운로드" class="appstore_img_a" href="https://play.google.com/store/apps/details?id=com.instagram.android&amp;referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D0C1376CA-6996-4C00-9DBE-74D644F68BE8%26utm_content%3Dlo%26utm_medium%3Dbadge" tabindex="0">
-<img alt="Google Play에서 다운로드" class="appstore_img " src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png">
-                    </a>
-                </div>
-            </div>
-        </div>
+<body style="background-color: #FAFAFA">
+<div>
+<div class="body2">
+  <div class="mainbox">
+    <div class="instalogo"><img
+                                           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png">
+    </div>
+       <div class="suggestsignup"> 친구들의 사진과 동영상을 보려면 <br>가입하세요.</br></div>
+    <div>
+      <div class="form-floating mb-3 Idbox">
+        <input type="email" class="form-control" style="height: 24px; color: gray;margin-top: 30px"
+               id="floatingInput"
+               placeholder="name@example.com">
+        <label for="floatingInput" style="font-size: 15px;padding: 4px 10px;">ID</label>
+      </div>
+    </div>
+    <div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" style="font-size: 14px; height: 24px;margin-top: 30px" id="floatingInput"
+               placeholder="name@example.com">
+        <label for="floatingInput" style="font-size: 15px;padding: 4px 10px">PW</label>
+      </div>
+      <div class="d-grid gap-2 col-5.mx-auto;">
+        <button class="btn btn-primary signupbutton" type="button">가입</button>
+      </div>
     </div>
 
-</main>
-<footer>
-<div>
-    <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
-        <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
-    <a href="https://about.facebook.com/meta" rel="nofollow noopener noreferrer" target="_blank">
-    <div class="_7UhW9  PIoXz       MMzan    _0PwGv          uL8Hv         ">Meta</div>
-</a>
 
+
+  </div>
 </div>
-</footer>
+  <div class="loginbox">
+    <p><br>계정이 있으신가요?</br> <a href="">로그인</a></p>
+  </div>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</div>
 </body>
 </html>
