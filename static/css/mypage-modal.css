@@ -1,0 +1,164 @@
+#my-modal-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s;
+}
+
+/*#my-modal-active-btn_1{*/
+/*    cursor: pointer;*/
+/*}*/
+
+.my-modal-case, #my-modal-case{
+    width: 70%;
+    height: 80%;
+    /*flex-shrink: 1;*/
+    /*justify-content: center;*/
+    /*max-height: calc(100% - 40px);*/
+    /*flex-direction: column;*/
+    /*align-items: stretch;*/
+    /*position: relative;*/
+
+/*    margin: auto auto auto auto;*/
+}
+/*@media (min-width: 736px) {*/
+/*    .my-modal-case , #my-modal-case{*/
+/*        width: 1400px;*/
+/*    }*/
+/*}*/
+
+.my-modal, #my-modal {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+/*    max-height: 100%;*/
+/*    !*overflow: hidden;*!*/
+/*    flex-shrink: 0;*/
+/*    !*position: relative;*!*/
+/*    align-items: center;*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    width: 80%;*/
+/*    height: 80%;*/
+
+/*    margin: 0px auto 1500px auto;*/
+}
+
+
+/*.my-modal-btn {*/
+/*    background-color: transparent;*/
+/*    cursor: pointer;*/
+/*    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*/
+/*    font-size: 14px;*/
+/*    line-height: 1.5;*/
+/*    min-height: 48px;*/
+/*    padding: 8px;*/
+/*    text-align: center;*/
+/*    user-select: none;*/
+/*    vertical-align: middle;*/
+/*    display: inline-block;*/
+/*    border: 0;*/
+/*    border-top: 1px solid rgba(var(--b6a,219,219,219),1);*/
+/*}*/
+
+/*.btn1 {*/
+/*    color: rgba(237,73,86,1);*/
+/*    font-weight: 700;*/
+/*    border: 0;*/
+/*}*/
+/*.btn2 {*/
+/*    color: rgba(237,73,86,1);*/
+/*    font-weight: 700;*/
+/*}*/
+
+
+.btn7 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+/*.no-scroll {*/
+/*    overflow: hidden;*/
+/*}*/
+
+.modal-leftbox {
+    width: 60%;
+    height: 100%;
+}
+
+.modal-rightbox {
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+.modal-rightbox-header {
+    margin-left: 30px;
+    margin-top: 15px;
+    height: 7%;
+}
+
+.modal-rightbox-body {
+    margin-left: 30px;
+    height: 70%;
+}
+
+.modal-rightbox-cmt {
+    margin-left: 30px;
+    height: 7%;
+
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: left;*/
+    /*align-items: center;*/
+}
+
+.modal_img {
+    width:100%;
+    height:100%;
+}
+
+.comment_save {
+    margin-top: 30pt;
+}
+
+.comment {
+    width: 70%;
+    border: none;
+}
+
+.comment_btn {
+    background-color: white;
+    border: none;
+    color: deepskyblue;
+
+    float: right;
+    margin-right: 10pt;
+}
