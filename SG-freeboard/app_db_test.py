@@ -26,9 +26,9 @@ def open_homepage():
 @app.route('/sign_up', methods=['POST'])
 def sign_up():
     user_id = request.form['user_id']
-    password = request.form['password']
+    pw = request.form['pw']
 
-    hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    hashed_password = hashlib.sha256(pw.encode('utf-8')).hexdigest()
 
     doc = {
         # "user_num": 123,
@@ -48,10 +48,10 @@ def sign_up():
 @app.route('/log_in', methods=['POST'])
 def log_in():
     user_id = request.form['user_id']
-    password = request.form['password']
+    pw = request.form['pw']
 
     # 회원가입 때와 같은 방법으로 pw를 암호화합니다.
-    hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    hashed_password = hashlib.sha256(pw.encode('utf-8')).hexdigest()
 
     # id, 암호화된pw을 가지고 해당 유저를 찾습니다.
     result = db.insta_users.find_one({'user_id': user_id, 'hashed_password': hashed_password})
@@ -60,6 +60,7 @@ def log_in():
     if result is not None:
         payload = {
             'user_id': user_id,
+            "log_in" : True
             # 'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=5)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
