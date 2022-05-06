@@ -30,11 +30,7 @@
     <img src="https://user-images.githubusercontent.com/100769423/166452833-ebd8d65a-adcc-44c0-9ced-45d1856df862.svg">
 </div>
 
-<h2>🎯기능 구현</h1>
-<h5>메인 페이지</h2>
-<h5>마이페이지</h2>
-<h5>로그인 페이지</h2>
-<h5>회원가입 페이지</h2>
+
 
 <h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">Github Wiki</a></h1>
 <h1>✍ Planning</h1>
