@@ -17,6 +17,7 @@
     <!--    로컬 css, js 임포트-->
     <link rel="stylesheet" href="../static/css/mypage-header.css">
     <link rel="stylesheet" href="../static/css/mypage.css">
+    <link rel="stylesheet" href="../static/css/mypage-modal.css">
 
 </head>
 <body>
@@ -155,7 +156,7 @@
             <table>
                 <tr>
                     <td class="mypage_post">
-                        <img class="mypage_post_img" src="../static/test_img.jpg">
+                        <img class="mypage_post_img open-modal" src="../static/test_img.jpg">
                         <div class="hover_text">
                             <i class="fa-solid fa-heart"></i>  0
                             &emsp;<i class="fa-solid fa-comment"></i>  0
@@ -206,5 +207,42 @@
             <address class="footer_desc">© 2022 Instagram clone from Team homebody</address>
         </div>
     </div>
+    <!--modal-->
+    <div class="my-modal-bg" id="my-modal-bg">
+        <div class="my-modal-case" id="my-modal-case">
+            <div class="my-modal" id="my-modal">
+                <div class="modal-leftbox">
+                    <img class="open-modal modal_img" src="../static/test_img.jpg">
+                </div>
+                <div class="modal-rightbox">
+                    <div class="modal-rightbox-header">
+                        <img src="../static/test_img.jpg" class="rounded-circle" style="width:40px; height:40px;">
+                        &ensp; user_id
+                    </div>
+                    <hr>
+                    <div class="modal-rightbox-body">
+                        <img src="../static/test_img.jpg" class="rounded-circle" style="width:40px; height:40px;">
+                        &ensp; user_id &ensp; 본문 내용이 들어갑니다.
+
+                        <div class="comment_save">
+                        여기서부터는 댓글 기록
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="modal-rightbox-cmt">
+                        <input class="comment" placeholder="댓글달기...">
+                        <button onclick="save_comment()" class="comment_btn">게시</button>
+                    </div>
+                </div>
+
+<!--                <button class="my-modal-btn btn1">신고</button>-->
+
+            </div>
+        </div>
+         <button class="btn7 modal_cancel_btn7" id="modal_cancel_btn7"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <script src="../static/js/main-openmodal.js">
+    </script>
 </body>
 </html>
