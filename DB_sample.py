@@ -1,5 +1,3 @@
-import pandas as pd
-
 
 doc = {
     # "user_num": 123,
@@ -29,6 +27,3 @@ doc = {
     ]
 }
 
-
-df = pd.DataFrame(doc)
-print(df)
