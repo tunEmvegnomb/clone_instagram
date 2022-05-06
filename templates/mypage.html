@@ -15,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--    로컬 css, js 임포트-->
-    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/mypage-header.css">
     <link rel="stylesheet" href="../static/css/mypage.css">
 
 </head>
@@ -39,7 +39,7 @@
                         <!--                5. 헤더 홈버튼 div-->
                         <div class="homebtn_wrap">
                             <!--                    5.1. 페이지를 이동할 주소가 들어간 a 태그-->
-                            <a href="/static" tabindex="0" class="homebtn_a">
+                            <a href="../templates/main.html" tabindex="0" class="homebtn_a">
                                 <!--                        5.2. 아이콘과 검색까지의 간격을 나누는 flex div-->
                                 <div class="homebtn_flex">
                                     <!--                            5.3. 아이콘 이미지를 넣는 div-->
@@ -90,7 +90,9 @@
                                 <!--                        5.2 home 아이콘 div-->
                                 <div class="icons_div" style="margin: 0">
                                     <!--                            5.3 아이콘 이미지 svg-->
-                                    <i class="fa-solid fa-house icons_icons fa-xl"></i>
+                                    <a href="../templates/main.html">
+                                        <i class="fa-solid fa-house icons_icons fa-xl"></i>
+                                    </a>
                                 </div>
                                 <!--                        5.2 explore 아이콘 div-->
                                 <div class="icons_div">
@@ -130,7 +132,7 @@
         <div class="mypage_profile">
             <div class="mypage_profile_img">
 <!--현재 로그인 계정 프로필 이미지 받아오기-->
-                <img src="..." class="rounded-circle" style="width:150px; height:150px;">
+                <img src="../static/test_img.jpg" class="rounded-circle" style="width:150px; height:150px;">
             </div>
 <!--현재 로그인 계정의 id, 게시물 수, 팔로워 수 , 팔로잉 수 받아오기-->
             <div class="mypage_user_info">
@@ -152,16 +154,56 @@
         <div class="mypage_posts">
             <table>
                 <tr>
-                    <td><img class="mypage_post_img" src="..."></td>
-                    <td><img class="mypage_post_img" src="..."></td>
-                    <td><img class="mypage_post_img" src="..."></td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="../static/test_img.jpg">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="...">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="...">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td><img class="mypage_post_img" src="..."></td>
-                    <td><img class="mypage_post_img" src="..."></td>
-                    <td><img class="mypage_post_img" src="..."></td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="...">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="...">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
+                    <td class="mypage_post">
+                        <img class="mypage_post_img" src="...">
+                        <div class="hover_text">
+                            <i class="fa-solid fa-heart"></i>  0
+                            &emsp;<i class="fa-solid fa-comment"></i>  0
+                        </div>
+                    </td>
                 </tr>
             </table>
+        </div>
+        <div class="footer">
+            <p>Meta &emsp; 소개 &emsp; 블로그 &emsp; 채용 정보 &emsp; 도움말 &emsp; API &emsp; 개인정보처리방침 &emsp; 약관 &emsp; 인기 계정 &emsp; 해시태그 &emsp; 위치 &emsp; Instagram Lite</p>
+            <address class="footer_desc">2022 Instagram clone from Team homebody</address>
         </div>
     </div>
 </body>
