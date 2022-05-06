@@ -27,10 +27,10 @@
 </div>
 
 <h1>기능 구현</h1>
-<h2>메인 페이지</h2>
-<h2>마이페이지</h2>
-<h2>로그인 페이지</h2>
-<h2>회원가입 페이지</h2>
+<h5>메인 페이지</h2>
+<h5>마이페이지</h2>
+<h5>로그인 페이지</h2>
+<h5>회원가입 페이지</h2>
 
 <h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">Github Wiki</a></h1>
 <h1>✍ Planning</h1>
