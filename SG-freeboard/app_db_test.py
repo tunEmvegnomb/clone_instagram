@@ -81,11 +81,11 @@ def log_in():
     # return jsonify({"result": "success", "all_orders": orders})
 
 
-@app.route('/create_post'. method=['POST'])
+@app.route('/create_post', methods=['POST'])
 def create_post():
-    token_receive = request.cookies.get('mytoken')
-    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-    user_id = payload['user_id']
+    # token_receive = request.cookies.get('mytoken')
+    # payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    user_id = request.form['user_id']
     img_src = request.form['img_src']
     article = request.form['article']
 
