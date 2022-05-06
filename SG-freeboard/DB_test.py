@@ -2,32 +2,27 @@ import pandas as pd
 
 
 doc = {
+    # "user_num": 123,
     "user_id": "Paul",
     "hashed_password": "Miller",
-    "follow": [1, 2, 3],
-    "follower": [1, 2, 3],
-    "feeds": [
+    "follow": [{"follow_id": "mugcup", "follow_time": 23234}],
+    "follower": [{"follower_id": "handcream", "follower_time": 23234}],
+    "posts": [
         {
-            "feed_id": "Bentley",
-            "time": 1973,
-            "url": "http://www.naver.com",
-            "feed_text": "가나다라마바사",
-            "like": 10, # 혹은 리스트의 개수를 세는 방식
-            "like_ids": [1, 3, 5],
-            "replies": [
+            "post_create_time": 1973,
+            "post_update_time": 2020,
+            "img_src": "http://www.naver.com",
+            "article": "가나다라마바사",
+            # "like_count": 10, # 혹은 리스트의 개수를 세는 방식
+            "like_post_ids": [{"like_post_id": "peter", "like_post_create_time": 2040}],
+            "comments": [
                 {
-                    "reply_id": "Rolls Royce",
-                    "reply_text": "오빠 사랑해요"
-                },
-                {
-                    "reply_id": "BMW",
-                    "reply_text": "오빠 사랑해요"
-                },
-                {
-                    "reply_id": "Benz",
-                    "reply_text": "오빠 사랑해요"
+                    "commenter_id": "Rolls Royce",
+                    "comment_article": "오빠 사랑해요",
+                    "comment_create_time": 1111,
+                    "comment_update_time": 2222,
+                    "like_comment": [{"like_comment_id": "Julia", "like_comment_create_time": 3333}],
                 }
-
             ]
 
         }
