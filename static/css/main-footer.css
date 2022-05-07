@@ -3,6 +3,8 @@
     /*background-color: #69dbff;*/
     width: 325px;
     height: 1000px;
+    position: fixed;
+    left: 59%;
 }
 
 /* 푸터필드 > 프로필 부분 */

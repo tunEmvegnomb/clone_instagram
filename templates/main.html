@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="../static/css/main_feed.css">
     <link rel="stylesheet" href="../static/css/main-footer.css">
     <link rel="stylesheet" href="../static/css/main-modal.css">
-
-
+    <script src="../static/js/main-openmodal.js"></script>
 
 </head>
 <body>
@@ -47,7 +46,7 @@
                     <!--                5. 헤더 홈버튼 div-->
                     <div class="homebtn_wrap">
                         <!--                    5.1. 페이지를 이동할 주소가 들어간 a 태그-->
-                        <a href="/static" tabindex="0" class="homebtn_a">
+                        <a href="/" tabindex="0" class="homebtn_a">
                             <!--                        5.2. 아이콘과 검색까지의 간격을 나누는 flex div-->
                             <div class="homebtn_flex">
                                 <!--                            5.3. 아이콘 이미지를 넣는 div-->
@@ -123,7 +122,7 @@
                             <!--                        5.2 profile 아이콘 div-->
                             <div class="icons_div">
                                 <!--                            5.3 아이콘 이미지 i-->
-                                <i class="fa-solid fa-circle icons_icons fa-xl"></i>
+                                <i class="fa-solid fa-circle icons_icons fa-xl" onclick="location.href='/mypage'"></i>
                             </div>
                         </div>
                     </div>
@@ -205,7 +204,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
+
                         <i class="fa-solid fa-ellipsis s40 option-modal1" onclick="showOptionModal(1)"></i>
+
                     </div>
                 </div>
             </div>
@@ -385,7 +386,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
+
                         <i class="fa-solid fa-ellipsis s40 option-modal2" onclick="showOptionModal(2)"></i>
+
                     </div>
                 </div>
             </div>
@@ -564,7 +567,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
+
                         <i class="fa-solid fa-ellipsis s40 option-modal3" onclick="showOptionModal(3)"></i>
+
                     </div>
                 </div>
             </div>
@@ -770,10 +775,7 @@
                                 <div class="footer_recommend_middle_list_user_reason">회원님을 위한 추천</div>
                             </div>
                             <!--                            8. 푸터 추천 리스트 팔로우 div -->
-                            <div class="footer_recommend_middle_list_follow">
-                                <a href="/">
-                                    팔로우
-                                </a></div>
+                            <div class="footer_recommend_middle_list_follow">팔로우</div>
                         </div>
                     </div>
                     <!--                    6. 푸터 추천 flex div2 -->
@@ -882,13 +884,13 @@
             <button class="my-modal-btn btn4">공유 대상...</button>
             <button class="my-modal-btn btn5">링크 복사</button>
             <button class="my-modal-btn btn6">퍼가기</button>
-            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7">취소</button>
+            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소</button>
         </div>
     </div>
 </div>
-<script src="../static/js/main-optionModal.js">
 
-</script>
+<script src="../static/js/main-optionModal.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
