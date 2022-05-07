@@ -107,3 +107,15 @@
     border-radius: 5px;
 
 }
+
+/* 모달 닫기 버튼 */
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: white;
+    z-index: 1000;
+}
