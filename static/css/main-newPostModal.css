@@ -28,7 +28,7 @@
     left: 50%;
     /*transform: translate(-50%, -50%);*/
     background-color: #fff;
-    box-shadow: 0 2px 7px rgba(0,0,0,0.7);
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.7);
 
     width: 790px;
     height: 833px;
@@ -43,9 +43,10 @@
     /* 보이지 않던 모달을 띄워주는 것처럼 보이는 효과 */
     opacity: 1;
     z-index: 1000;
+    transition: all .5s;
 }
 
-.modalPopup, .modalShow {
+.modalPopup {
     /* 초기에 위치를 낮게 잡아 올라오는 애니메이션 after */
     transform: translate(-50%, -50%);
     /* 시간을 지정해 줘서 화면이 뜨는 애니메이션 효과 */
