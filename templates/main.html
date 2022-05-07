@@ -109,7 +109,8 @@
                             <!--                        5.2 plus 아이콘 div-->
                             <div class="icons_div">
                                 <!--                            5.3 아이콘 이미지 i-->
-                                <i class="fa-regular fa-square-plus icons_icons fa-xl" onclick="open_newPostModal()"></i>
+                                <i class="fa-regular fa-square-plus icons_icons fa-xl"
+                                   onclick="open_newPostModal()"></i>
                             </div>
                             <!--                        5.2 compass 아이콘 div-->
                             <div class="icons_div">
@@ -887,7 +888,8 @@
             <button class="my-modal-btn btn4">공유 대상...</button>
             <button class="my-modal-btn btn5">링크 복사</button>
             <button class="my-modal-btn btn6">퍼가기</button>
-            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소</button>
+            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소
+            </button>
         </div>
     </div>
 </div>
@@ -895,10 +897,24 @@
 <!--newPostModal-->
 <!--주위 배경을 검게 만들어주는 태그-->
 <div id="newPostModal" class="modalBackground">
-<!--    모달 내용물이 들어갈 그릇 -->
+    <!--    모달 내용물이 들어갈 그릇 -->
     <div class="modalWindow">
-<!--        모달 내용물-->
+        <!--        모달 내용물-->
         <div class="modalPopup">
+            <div class="postHeader">
+                <p>새 게시물 만들기</p>
+                <div style="color: #0095f6; font-weight: bolder">다음</div>
+            </div>
+            <div class="postBody">
+                <div>
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>사진과 동영상을 여기다 끌어 놓으세요</p>
+                    <button>컴퓨터에서 선택</button>
+                </div>
+            </div>
+        </div>
+        <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
+        <div class="uploadModalPopup" style="display: none">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
             </div>
@@ -910,7 +926,7 @@
                 </div>
             </div>
         </div>
-<!--        화면 닫기 아이콘-->
+        <!--        화면 닫기 아이콘-->
         <i class="fa-solid fa-xmark close" onclick="close_newPostModal()"></i>
     </div>
 </div>
