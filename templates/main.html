@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="../static/css/main-story.css">
     <link rel="stylesheet" href="../static/css/main_feed.css">
     <link rel="stylesheet" href="../static/css/main-footer.css">
-    <link rel="stylesheet" href="../static/css/main-modal.css">
-    <script src="../static/js/main-openmodal.js"></script>
+    <link rel="stylesheet" href="../static/css/main-optionModal.css">
+    <link rel="stylesheet" href="../static/css/main-newPostModal.css">
+    <script src="../static/js/main-optionModal.js"></script>
+    <script src="../static/js/main-newPostModal.js"></script>
 
 </head>
 <body>
@@ -107,7 +109,7 @@
                             <!--                        5.2 plus 아이콘 div-->
                             <div class="icons_div">
                                 <!--                            5.3 아이콘 이미지 i-->
-                                <i class="fa-regular fa-square-plus icons_icons fa-xl"></i>
+                                <i class="fa-regular fa-square-plus icons_icons fa-xl" onclick="open_newPostModal()"></i>
                             </div>
                             <!--                        5.2 compass 아이콘 div-->
                             <div class="icons_div">
@@ -875,6 +877,7 @@
     </div>
 </main>
 <!--modal-->
+<!--optionModal-->
 <div class="my-modal-bg" id="my-modal-bg">
     <div class="my-modal-case" id="my-modal-case">
         <div class="my-modal" id="my-modal">
@@ -886,6 +889,29 @@
             <button class="my-modal-btn btn6">퍼가기</button>
             <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소</button>
         </div>
+    </div>
+</div>
+
+<!--newPostModal-->
+<!--주위 배경을 검게 만들어주는 태그-->
+<div id="newPostModal" class="modalBackground">
+<!--    모달 내용물이 들어갈 그릇 -->
+    <div class="modalWindow">
+<!--        모달 내용물-->
+        <div class="modalPopup">
+            <div class="postHeader">
+                <p>새 게시물 만들기</p>
+            </div>
+            <div class="postBody">
+                <div>
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>사진과 동영상을 여기다 끌어 놓으세요</p>
+                    <button>컴퓨터에서 선택</button>
+                </div>
+            </div>
+        </div>
+<!--        화면 닫기 아이콘-->
+        <i class="fa-solid fa-xmark close" onclick="close_newPostModal()"></i>
     </div>
 </div>
 

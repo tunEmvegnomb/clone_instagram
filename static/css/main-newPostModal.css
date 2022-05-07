@@ -1,0 +1,121 @@
+/* 모달 배경을 검게 만들어줌 */
+.modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    /* 모달을 숨기기 */
+    z-index: -1;
+    opacity: 0;
+}
+
+/* 모달 내용물이 들어갈 그릇 */
+.modalWindow {
+    /*background-color: red;*/
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* 모달 내용물 */
+.modalPopup {
+    /* 화면 정 가운데에 놓을 수 있게하는 코드 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*transform: translate(-50%, -50%);*/
+    background-color: #fff;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.9);
+
+    width: 790px;
+    height: 833px;
+
+    border-radius: 15px;
+    /* 초기에 위치를 낮게 잡아 올라오는 애니메이션 before */
+    transform: translate(-50%, -40%);
+}
+
+/* 모달을 보여주게할 스타일 클래스 */
+.modalShow {
+    /* 보이지 않던 모달을 띄워주는 것처럼 보이는 효과 */
+    opacity: 1;
+    z-index: 1000;
+    transition: all .5s;
+}
+
+.modalPopup {
+    /* 초기에 위치를 낮게 잡아 올라오는 애니메이션 after */
+    transform: translate(-50%, -50%);
+    /* 시간을 지정해 줘서 화면이 뜨는 애니메이션 효과 */
+    transition: all .5s;
+}
+
+/* 모달 팝업 내부 내용 속성 */
+.postHeader {
+    width: 790px;
+    height: 43px;
+    box-shadow: 0 1px #dbdbdb;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.postHeader > p {
+    margin-top: 15px;
+}
+
+.postBody {
+    width: 790px;
+    height: 790px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.postBody > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.postBody > div> i {
+    font-size: 77px;
+    object-fit: cover;
+}
+.postBody > div > p {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 22px;
+}
+.postBody > div > button {
+    background-color: #0095f6;
+    color: white;
+    width: 121px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+
+}
+
+/* 모달 닫기 버튼 */
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: white;
+    z-index: 1000;
+}
