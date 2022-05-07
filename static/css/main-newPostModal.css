@@ -52,3 +52,21 @@
     /* 시간을 지정해 줘서 화면이 뜨는 애니메이션 효과 */
     transition: all .5s;
 }
+
+/* 모달 팝업 내부 내용 속성 */
+.postHeader {
+    width: 790px;
+    height: 43px;
+    box-shadow: 0 1px #dbdbdb;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.postHeader > p {
+    margin-top: 15px;
+}
