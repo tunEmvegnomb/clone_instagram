@@ -70,3 +70,40 @@
 .postHeader > p {
     margin-top: 15px;
 }
+
+.postBody {
+    width: 790px;
+    height: 790px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.postBody > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.postBody > div> i {
+    font-size: 77px;
+    object-fit: cover;
+}
+.postBody > div > p {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 22px;
+}
+.postBody > div > button {
+    background-color: #0095f6;
+    color: white;
+    width: 121px;
+    height: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+
+}
