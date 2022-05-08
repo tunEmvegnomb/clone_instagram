@@ -137,6 +137,16 @@
 
 
 /* 모달을 돌아가면서 출력하게 할 CSS 속성 */
-#afterUpload {
+#beforeUpload {
     display: none;
+}
+
+#afterUpload {
+    /*display: none;*/
+    overflow: hidden;
+}
+#afterUpload > .postBody {
+    background-image: url("https://assets2.rockpapershotgun.com/omega-rugal.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/omega-rugal.jpg");
+    background-size: cover;
+    background-position: center;
 }
