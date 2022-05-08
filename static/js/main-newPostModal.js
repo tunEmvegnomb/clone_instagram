@@ -5,3 +5,4 @@ function open_newPostModal() {
 function close_newPostModal() {
     document.querySelector(".modalBackground").className = "modalBackground"
 }
+

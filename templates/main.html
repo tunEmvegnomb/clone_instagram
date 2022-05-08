@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="../static/css/main-optionModal.css">
     <link rel="stylesheet" href="../static/css/main-newPostModal.css">
     <script src="../static/js/main-newPostModal.js"></script>
+    <link rel="stylesheet" href="../static/css/main-feedModal.css">
+    <script src="../static/js/main-feedModal.js"></script>
 
 </head>
 <body>
@@ -283,7 +285,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -464,7 +466,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -644,7 +646,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -912,7 +914,7 @@
             </div>
         </div>
         <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
-        <div id="afterUpload" class="modalPopup" >
+        <div id="afterUpload" class="modalPopup">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
                 <button onclick="">다음</button>
@@ -921,14 +923,14 @@
 
             </div>
         </div>
-<!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
-        <div id="completePost" class="modalPopup" >
+        <!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
+        <div id="completePost" class="modalPopup">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
                 <button onclick="">공유하기</button>
             </div>
             <div class="postBody">
-                <div class="post_image"> </div>
+                <div class="post_image"></div>
                 <div class="post_text">
                     <div class="profile_card">
                         <div class="profile_card_img"></div>
@@ -946,15 +948,34 @@
                 </div>
             </div>
         </div>
+
         <!--        화면 닫기 아이콘-->
         <i class="fa-solid fa-xmark close" onclick="close_newPostModal()"></i>
     </div>
 </div>
 
+<!--    메인페이지 피드 모달 -->
+<!--주위 배경을 검게 만들어주는 태그-->
+<div id="feedModal" class="modalBackground">
+    <!--    모달 내용물이 들어갈 그릇 -->
+    <div class="modalWindow">
+        <!--        모달 내용물-->
+        <div id="feedModalPop" class="modalPopup">
+            <div class="postHeader">
+                <p>피드 모달</p>
+            </div>
+        </div>
+        <div>
+            <!--        화면 닫기 아이콘-->
+            <i class="fa-solid fa-xmark close" onclick="close_feedModal()"></i>
+        </div>
+    </div>
+</div>
 <script src="../static/js/main-optionModal.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
 </body>
 </html>
