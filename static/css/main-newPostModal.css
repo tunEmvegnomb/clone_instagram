@@ -142,11 +142,40 @@
 }
 
 #afterUpload {
-    /*display: none;*/
+    display: none;
     overflow: hidden;
 }
+
 #afterUpload > .postBody {
     background-image: url("https://assets2.rockpapershotgun.com/omega-rugal.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/omega-rugal.jpg");
     background-size: cover;
     background-position: center;
+}
+
+#completePost {
+    /*display: none;*/
+    width: 1130px;
+    overflow: hidden;
+}
+
+#completePost > .postHeader {
+    width: 1130px
+}
+
+#completePost > .postBody {
+    width: 1130px;
+    display: flex;
+    flex-direction: row;
+}
+
+.post_image {
+    background-color: red;
+    width: 790px;
+    height: 790px;
+}
+
+.post_text {
+    background-color: gold;
+    width: 340px;
+    height: 790px;
 }
