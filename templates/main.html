@@ -899,10 +899,10 @@
     <!--    모달 내용물이 들어갈 그릇 -->
     <div class="modalWindow">
         <!--        모달 내용물-->
-        <div class="modalPopup">
+        <div id="beforeUpload" class="modalPopup">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
-                <div>다음</div>
+                <button>다음</button>
             </div>
             <div class="postBody">
                 <div>
@@ -913,16 +913,12 @@
             </div>
         </div>
         <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
-        <div class="uploadModalPopup" style="display: none">
+        <div id="afterUpload" class="modalPopup" >
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
             </div>
             <div class="postBody">
-                <div>
-                    <i class="fa-solid fa-photo-film"></i>
-                    <p>사진과 동영상을 여기다 끌어 놓으세요</p>
-                    <button>컴퓨터에서 선택</button>
-                </div>
+
             </div>
         </div>
         <!--        화면 닫기 아이콘-->

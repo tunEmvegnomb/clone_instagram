@@ -72,12 +72,14 @@
     margin-top: 15px;
 }
 
-.postHeader > div {
+.postHeader > button {
     color: #0095f6;
     font-weight: bolder;
     /*display: none;*/
     position: absolute;
     right: 20px;
+    border: 0;
+    background-color: white;
 }
 
 
@@ -131,4 +133,10 @@
     font-size: 24px;
     color: white;
     z-index: 1000;
+}
+
+
+/* 모달을 돌아가면서 출력하게 할 CSS 속성 */
+#afterUpload {
+    display: none;
 }
