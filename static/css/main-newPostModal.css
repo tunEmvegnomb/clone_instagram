@@ -175,7 +175,45 @@
 }
 
 .post_text {
-    background-color: gold;
+    /*background-color: gold;*/
     width: 340px;
     height: 790px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_card {
+    background-color: coral;
+    width: 340px;
+    height: 60px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.text_card {
+    /*background-color: #0095f6;*/
+    width: 340px;
+    height: 212px;
+}
+.text_card > textarea {
+    width: 340px;
+    height: 168px;
+    border: 0;
+    outline: 0;
+    padding: 0 16px;
+    box-sizing: border-box;
+    /* 텍스트 에어리어 줄 세 개 없애기 */
+    resize: none;
+    margin-bottom: 6px;
+
+}
+
+.text_card > div {
+    display: flex;
+    flex-direction: row;
+    color: #8e8e8e;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
