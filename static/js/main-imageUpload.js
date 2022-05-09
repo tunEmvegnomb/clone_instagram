@@ -17,10 +17,19 @@ function loadFile(input) {
         contentType: false,
         processData: false,
         success: function (response) {
-            // console.log(response)
+            console.log(response)
             let filename = response['filename']
             let imageBody = document.getElementsByClassName("imageBody")
-            imageBody.style.background = "url(.." + filename + ")"
+            // 애프터 업로드 모달 이미지바디에 사진 주소 변경하기
+            imageBody[0].style.backgroundImage = "url(/" + filename + ")"
+            // console.log(imageBody)
+            //    비포어 업로드 모달 닫기
+            const beforeUpload = document.getElementById("beforeUpload");
+            beforeUpload.style.display = "none"
+            //    애프터 업로드 모달 열기
+            const afterUpload = document.getElementById("afterUpload");
+            afterUpload.style.display = "block"
+
         }
     });
 }
@@ -40,12 +49,12 @@ function loadFile(input) {
 // //
 // //     console.log(newImage.src)
 //
-// //    비포어 업로드 모달 닫기
-//     const beforeUpload = document.getElementById("beforeUpload");
-//     beforeUpload.style.display = "none"
-// //    애프터 업로드 모달 열기
-//     const afterUpload = document.getElementById("afterUpload");
-//     afterUpload.style.display = "block"
+//    비포어 업로드 모달 닫기
+const beforeUpload = document.getElementById("beforeUpload");
+beforeUpload.style.display = "none"
+//    애프터 업로드 모달 열기
+const afterUpload = document.getElementById("afterUpload");
+afterUpload.style.display = "block"
 // //    애프터 업로드 모달에 이미지 넣기
 //     const imageBody = document.getElementsByClassName("imageBody")
 //     imageBody.style.backgroundImage = 'url(' + file.src + ')';
