@@ -925,10 +925,11 @@
                 <div>
                     <i class="fa-solid fa-photo-film"></i>
                     <p>사진과 동영상을 여기다 끌어 놓으세요</p>
-                    <div>
-                        <label for="input-file" style="margin: 3px auto;">컴퓨터에서 선택</label>
-                        <input id="input-file" type="file" style="display: none">
-                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        <label for="file" style="margin: 3px auto;">컴퓨터에서 선택</label>
+                        <input id="file" type="file" style="display: none"
+                               accept="image/*" onchange="loadFile(this)">
+                    </form>
                 </div>
             </div>
         </div>
@@ -938,7 +939,7 @@
                 <p>새 게시물 만들기</p>
                 <button onclick="">다음</button>
             </div>
-            <div class="postBody">
+            <div class="postBody imageBody">
 
             </div>
         </div>

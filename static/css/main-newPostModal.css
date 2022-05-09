@@ -111,7 +111,7 @@
     font-size: 22px;
 }
 
-.postBody > div > div {
+.postBody > div > form {
     background-color: #0095f6;
     color: white;
     width: 121px;
