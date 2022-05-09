@@ -38,7 +38,7 @@ main {
 .wrap_storycards {
     /*background-color: #fff;*/
     width: 614px;
-    height: 1053px;
+    /*height: 1053px;*/
     margin-top: 24px;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
@@ -66,7 +66,7 @@ main {
 .storycards_bottom {
     /*background-color: #15993a;*/
     width: 614px;
-    height: 213px;
+    /*height: 213px;*/
 }
 
 

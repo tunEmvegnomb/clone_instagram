@@ -17,13 +17,24 @@
             crossorigin="anonymous"></script>
 
     <!--    로컬 css, js 임포트-->
-    <link rel="stylesheet" href="../static/css/header.css">
-    <link rel="stylesheet" href="../static/css/main.css">
-    <link rel="stylesheet" href="../static/css/main-story.css">
-    <link rel="stylesheet" href="../static/css/main_feed.css">
-    <link rel="stylesheet" href="../static/css/main-footer.css">
-    <link rel="stylesheet" href="../static/css/main-modal.css">
+    <!--    <link rel="stylesheet" href="../static/css/main-footer.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/main-optionModal.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/main-story.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/main-feed.css">-->
 
+    <!--    <link type="text/css" rel="stylesheet" href="../static/css/main-newPostModal.css?ver=1">-->
+    <!--    <link type="text/css" rel="stylesheet" href="../static/css/main-feedModal.css?ver=1">-->
+    <!--    <link rel="stylesheet" href="../static/css/main-header.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/main.css">-->
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-newPostModal.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-footer.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-optionModal.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-story.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-feed.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-header.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-feedModal.css') }}"/>
 
 
 </head>
@@ -47,7 +58,7 @@
                     <!--                5. 헤더 홈버튼 div-->
                     <div class="homebtn_wrap">
                         <!--                    5.1. 페이지를 이동할 주소가 들어간 a 태그-->
-                        <a href="/static" tabindex="0" class="homebtn_a">
+                        <a href="/" tabindex="0" class="homebtn_a">
                             <!--                        5.2. 아이콘과 검색까지의 간격을 나누는 flex div-->
                             <div class="homebtn_flex">
                                 <!--                            5.3. 아이콘 이미지를 넣는 div-->
@@ -108,7 +119,8 @@
                             <!--                        5.2 plus 아이콘 div-->
                             <div class="icons_div">
                                 <!--                            5.3 아이콘 이미지 i-->
-                                <i class="fa-regular fa-square-plus icons_icons fa-xl"></i>
+                                <i class="fa-regular fa-square-plus icons_icons fa-xl"
+                                   onclick="open_newPostModal()"></i>
                             </div>
                             <!--                        5.2 compass 아이콘 div-->
                             <div class="icons_div">
@@ -123,7 +135,7 @@
                             <!--                        5.2 profile 아이콘 div-->
                             <div class="icons_div">
                                 <!--                            5.3 아이콘 이미지 i-->
-                                <i class="fa-solid fa-circle icons_icons fa-xl"></i>
+                                <i class="fa-solid fa-circle icons_icons fa-xl" onclick="location.href='/mypage'"></i>
                             </div>
                         </div>
                     </div>
@@ -205,7 +217,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40 open-modal"></i>
+
+                        <i class="fa-solid fa-ellipsis s40 option-modal1" onclick="showOptionModal(1)"></i>
+
                     </div>
                 </div>
             </div>
@@ -221,6 +235,7 @@
                                 aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="##carousel-one" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
+
                     </div>
                     <div class="carousel-inner">
                         <!--                                캐러셀 아이템-->
@@ -280,7 +295,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -288,14 +303,14 @@
                             </div>
                         </div>
                         <!--                        7. 스토리카드 미들 아이콘 div -->
-                        <div class="storycards_bottom_icons_middle">
-                            <!--                            8. 스토리카드 미들 아이콘 스테이터스 div -->
-                            <div class="storycards_bottom_icons_middle_status">
-                                <i class="fa-solid fa-circle s6"></i>
-                                <i class="fa-regular fa-circle s6"></i>
-                                <i class="fa-regular fa-circle s6"></i>
-                            </div>
-                        </div>
+                        <!--                        <div class="storycards_bottom_icons_middle">-->
+                        <!--                            &lt;!&ndash;                            8. 스토리카드 미들 아이콘 스테이터스 div &ndash;&gt;-->
+                        <!--                            <div class="storycards_bottom_icons_middle_status">-->
+                        <!--                                <i class="fa-solid fa-circle s6"></i>-->
+                        <!--                                <i class="fa-regular fa-circle s6"></i>-->
+                        <!--                                <i class="fa-regular fa-circle s6"></i>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <!--                        7. 스토리카드 라이트 아이콘 div -->
                         <div class="storycards_bottom_icons_right">
                             <!--                            8. 스토리카드 라이트 아이콘 북마크 div -->
@@ -334,9 +349,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">yungsang-H</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">로직을 설계해서 기획부터 목업, 그리고 코딩까지</div>
+                        <div class="storycards_bottom_story_data">로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 8개 모두 보기</div>
@@ -385,7 +400,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40"></i>
+
+                        <i class="fa-solid fa-ellipsis s40 option-modal2" onclick="showOptionModal(2)"></i>
+
                     </div>
                 </div>
             </div>
@@ -459,7 +476,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -513,9 +530,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">GoldVedio</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!</div>
+                        <div class="storycards_bottom_story_data">스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 4개 모두 보기</div>
@@ -564,7 +581,9 @@
                     </div>
                     <!--                    6. 스토리카드 상단 옵션 div -->
                     <div class="storycards_top_option">
-                        <i class="fa-solid fa-ellipsis s40"></i>
+
+                        <i class="fa-solid fa-ellipsis s40 option-modal3" onclick="showOptionModal(3)"></i>
+
                     </div>
                 </div>
             </div>
@@ -637,7 +656,7 @@
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 코멘트 div -->
                             <div class="storycards_bottom_icons_left_comment">
-                                <i class="fa-regular fa-comment s24"></i>
+                                <i class="fa-regular fa-comment s24" onclick="open_feedModal()"></i>
                             </div>
                             <!--                            8. 스토리카드 레프트 아이콘 익스플로어 div -->
                             <div class="storycards_bottom_icons_left_explore">
@@ -691,9 +710,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">migdracios</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">전능하신 아카라트여 영원한 빛으로 날 보호하소서;;</div>
+                        <div class="storycards_bottom_story_data">전능하신 아카라트여 영원한 빛으로 날 보호하소서;;전능하신 아카라트여 영원한 빛으로 날 보호하소서;;전능하신 아카라트여 영원한 빛으로 날 보호하소서;;</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 302개 모두 보기</div>
@@ -770,10 +789,7 @@
                                 <div class="footer_recommend_middle_list_user_reason">회원님을 위한 추천</div>
                             </div>
                             <!--                            8. 푸터 추천 리스트 팔로우 div -->
-                            <div class="footer_recommend_middle_list_follow">
-                                <a href="/">
-                                    팔로우
-                                </a></div>
+                            <div class="footer_recommend_middle_list_follow">팔로우</div>
                         </div>
                     </div>
                     <!--                    6. 푸터 추천 flex div2 -->
@@ -873,6 +889,7 @@
     </div>
 </main>
 <!--modal-->
+<!--optionModal-->
 <div class="my-modal-bg" id="my-modal-bg">
     <div class="my-modal-case" id="my-modal-case">
         <div class="my-modal" id="my-modal">
@@ -882,15 +899,98 @@
             <button class="my-modal-btn btn4">공유 대상...</button>
             <button class="my-modal-btn btn5">링크 복사</button>
             <button class="my-modal-btn btn6">퍼가기</button>
-            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7">취소</button>
+            <button class="my-modal-btn btn7 modal_cancel_btn7" id="modal_cancel_btn7" onclick="close_modal_btn()">취소
+            </button>
         </div>
     </div>
 </div>
-<script src="../static/js/main-openmodal.js">
 
-</script>
+<!--newPostModal-->
+<!--주위 배경을 검게 만들어주는 태그-->
+<div id="newPostModal" class="modalBackground">
+    <!--    모달 내용물이 들어갈 그릇 -->
+    <div class="modalWindow">
+        <!--        모달 내용물-->
+        <div id="beforeUpload" class="modalPopup">
+            <div class="postHeader">
+                <p>새 게시물 만들기</p>
+            </div>
+            <div class="postBody">
+                <div>
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>사진과 동영상을 여기다 끌어 놓으세요</p>
+                    <button>컴퓨터에서 선택</button>
+                </div>
+            </div>
+        </div>
+        <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
+        <div id="afterUpload" class="modalPopup">
+            <div class="postHeader">
+                <p>새 게시물 만들기</p>
+                <button onclick="">다음</button>
+            </div>
+            <div class="postBody">
+
+            </div>
+        </div>
+        <!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
+        <div id="completePost" class="modalPopup">
+            <div class="postHeader">
+                <p>새 게시물 만들기</p>
+                <button onclick="">공유하기</button>
+            </div>
+            <div class="postBody">
+                <div class="post_image"></div>
+                <div class="post_text">
+                    <div class="profile_card">
+                        <div class="profile_card_img"></div>
+                        <div class="profile_card_name">gold_vedio</div>
+                    </div>
+                    <div class="text_card">
+                        <textarea aria-label="문구" type="text" placeholder="문구 입력..."></textarea>
+                        <div>
+                            <i class="fa-regular fa-face-grin-squint" style="font-size: 20px"></i>
+                        </div>
+                    </div>
+                    <div class="additional_card">
+                        <div>고급 옵션</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--        화면 닫기 아이콘-->
+        <i class="fa-solid fa-xmark close" onclick="close_newPostModal()"></i>
+    </div>
+</div>
+
+<!--    메인페이지 피드 모달 -->
+<!--주위 배경을 검게 만들어주는 태그-->
+<div id="feedModal" class="modalBackground">
+    <!--    모달 내용물이 들어갈 그릇 -->
+    <div class="modalWindow">
+        <!--        모달 내용물-->
+        <div id="feedModalPop" class="modalPopup">
+            <div class="postHeader">
+                <p>피드 모달</p>
+            </div>
+        </div>
+        <div>
+            <!--        화면 닫기 아이콘-->
+            <i class="fa-solid fa-xmark close" onclick="close_feedModal()"></i>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename ='js/main-feedModal.js') }}"></script>
+<script src="{{ url_for('static', filename ='js/main-newPostModal.js') }}"></script>
+<script src="{{ url_for('static', filename ='js/main-optionModal.js') }}"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
+
+
 </body>
 </html>

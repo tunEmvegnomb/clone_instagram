@@ -7,7 +7,6 @@
     <!--    웹 폰트어썸, 제이쿼리 임포트-->
     <script src="https://kit.fontawesome.com/bc43dde373.js" crossorigin="anonymous"></script>
     <!--  JQuery Import  -->
-    <!--  src 부분을 https 로 변경해주면 로딩이 없어지는 상황이 있었음  -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
     <!--    Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -17,6 +16,7 @@
     <!--    로컬 css, js 임포트-->
     <link rel="stylesheet" href="../static/css/mypage-header.css">
     <link rel="stylesheet" href="../static/css/mypage.css">
+    <link rel="stylesheet" href="../static/css/mypage-modal.css">
 
 </head>
 <body>
@@ -132,7 +132,7 @@
         <div class="mypage_profile">
             <div class="mypage_profile_img">
 <!--현재 로그인 계정 프로필 이미지 받아오기-->
-                <img src="../static/test_img.jpg" class="rounded-circle" style="width:150px; height:150px;">
+                <img src="../static/img/test_img.jpg" class="rounded-circle" style="width:150px; height:150px;">
             </div>
 <!--현재 로그인 계정의 id, 게시물 수, 팔로워 수 , 팔로잉 수 받아오기-->
             <div class="mypage_user_info">
@@ -155,7 +155,7 @@
             <table>
                 <tr>
                     <td class="mypage_post">
-                        <img class="mypage_post_img" src="../static/test_img.jpg">
+                        <img class="mypage_post_img mypage_open_modal" src="../static/img/test_img.jpg">
                         <div class="hover_text">
                             <i class="fa-solid fa-heart"></i>  0
                             &emsp;<i class="fa-solid fa-comment"></i>  0
@@ -206,5 +206,42 @@
             <address class="footer_desc">© 2022 Instagram clone from Team homebody</address>
         </div>
     </div>
+    <!--modal-->
+    <div class="mypage_modal_bg" id="mypage_modal_bg">
+        <div class="mypage_modal_case" id="mypage_modal_case">
+            <div class="mypage_modal" id="mypage_modal">
+<!--                모달 왼쪽 이미지-->
+                <div class="modal_leftbox">
+                    <img class="mypage_open_modal modal_img" src="../static/img/test_img.jpg">
+                </div>
+<!--                모달 우측 본문,댓글-->
+                <div class="modal_rightbox">
+                    <div class="modal_rightbox_header">
+                        <img src="../static/img/test_img.jpg" class="rounded-circle" style="width:40px; height:40px;">
+                        &ensp; user_id
+                    </div>
+                    <hr>
+                    <div class="modal_rightbox_body">
+                        <img src="../static/img/test_img.jpg" class="rounded-circle" style="width:40px; height:40px;">
+                        &ensp; user_id &ensp; 본문 내용이 들어갑니다.
+
+                        <div class="comment_saved">
+                        여기서부터는 댓글 기록
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="modal_rightbox_cmt">
+                        <input class="comment" placeholder="댓글달기...">
+                        <button onclick="save_comment()" class="comment_btn">게시</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--        모달 닫기버튼-->
+        <button class="mypage_modal_close" id="mypage_modal_close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+<!--    모달 js파일 불러오기-->
+    <script src="../static/js/mypage-modal.js">
+    </script>
 </body>
 </html>
