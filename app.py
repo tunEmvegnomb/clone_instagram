@@ -120,8 +120,9 @@ def input_image():
     #   파일 이름만 DB에 넣기
     db.feeds.insert_one({'img':f'{filename}.{extension}'})
 
-    # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 출력
-    return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.'})
+
+    # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
+    return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)

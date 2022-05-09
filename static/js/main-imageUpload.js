@@ -17,7 +17,10 @@ function loadFile(input) {
         contentType: false,
         processData: false,
         success: function (response) {
-            console.log(response)
+            // console.log(response)
+            let filename = response['filename']
+            let imageBody = document.getElementsByClassName("imageBody")
+            imageBody.style.background = "url(.." + filename + ")"
         }
     });
 }
