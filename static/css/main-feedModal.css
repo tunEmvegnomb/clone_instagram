@@ -1,0 +1,18 @@
+#feedModal {
+    padding: 24px 64px;
+    box-sizing: border-box;
+}
+
+.close {
+    padding: 0;
+}
+
+#feedModalPop {
+    max-width: 1500px;
+    width: 95%;
+    max-height: 1000px;
+    height: 95%;
+    overflow: auto;
+
+    border-radius: 5px;
+}
