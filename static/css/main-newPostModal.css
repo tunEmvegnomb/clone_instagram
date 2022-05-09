@@ -149,7 +149,7 @@
 }
 
 #afterUpload > .postBody {
-    background-image: url("https://assets2.rockpapershotgun.com/omega-rugal.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/omega-rugal.jpg");
+    /*background-image: url("https://assets2.rockpapershotgun.com/omega-rugal.jpg/BROK/resize/1920x1920%3E/format/jpg/quality/80/omega-rugal.jpg");*/
     background-size: cover;
     background-position: center;
 }
