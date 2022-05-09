@@ -111,15 +111,17 @@
     font-size: 22px;
 }
 
-.postBody > div > button {
+.postBody > div > div {
     background-color: #0095f6;
     color: white;
     width: 121px;
     height: 30px;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: bold;
     border: 0;
     border-radius: 5px;
+    text-align: center;
+
 
 }
 
@@ -138,7 +140,7 @@
 
 /* 모달을 돌아가면서 출력하게 할 CSS 속성 */
 #beforeUpload {
-    display: none;
+    /*display: none;*/
 }
 
 #afterUpload {
@@ -153,7 +155,7 @@
 }
 
 #completePost {
-    /*display: none;*/
+    display: none;
     width: 1130px;
     overflow: hidden;
 }
