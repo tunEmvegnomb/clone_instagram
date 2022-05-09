@@ -224,6 +224,7 @@
                                 aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="##carousel-one" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
+
                     </div>
                     <div class="carousel-inner">
                         <!--                                캐러셀 아이템-->
@@ -291,14 +292,14 @@
                             </div>
                         </div>
                         <!--                        7. 스토리카드 미들 아이콘 div -->
-                        <div class="storycards_bottom_icons_middle">
-                            <!--                            8. 스토리카드 미들 아이콘 스테이터스 div -->
-                            <div class="storycards_bottom_icons_middle_status">
-                                <i class="fa-solid fa-circle s6"></i>
-                                <i class="fa-regular fa-circle s6"></i>
-                                <i class="fa-regular fa-circle s6"></i>
-                            </div>
-                        </div>
+                        <!--                        <div class="storycards_bottom_icons_middle">-->
+                        <!--                            &lt;!&ndash;                            8. 스토리카드 미들 아이콘 스테이터스 div &ndash;&gt;-->
+                        <!--                            <div class="storycards_bottom_icons_middle_status">-->
+                        <!--                                <i class="fa-solid fa-circle s6"></i>-->
+                        <!--                                <i class="fa-regular fa-circle s6"></i>-->
+                        <!--                                <i class="fa-regular fa-circle s6"></i>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
                         <!--                        7. 스토리카드 라이트 아이콘 div -->
                         <div class="storycards_bottom_icons_right">
                             <!--                            8. 스토리카드 라이트 아이콘 북마크 div -->
@@ -337,9 +338,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">yungsang-H</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">로직을 설계해서 기획부터 목업, 그리고 코딩까지</div>
+                        <div class="storycards_bottom_story_data">로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지로직을 설계해서 기획부터 목업, 그리고 코딩까지</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 8개 모두 보기</div>
@@ -518,9 +519,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">GoldVedio</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!</div>
+                        <div class="storycards_bottom_story_data">스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!스파르타 코딩클럽 내일배움캠프는 정말이지 최고야!!</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 4개 모두 보기</div>
@@ -698,9 +699,9 @@
                         <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                         <div class="storycards_bottom_story_user">migdracios</div>
                         <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                        <div class="storycards_bottom_story_data">전능하신 아카라트여 영원한 빛으로 날 보호하소서;;</div>
+                        <div class="storycards_bottom_story_data">전능하신 아카라트여 영원한 빛으로 날 보호하소서;;전능하신 아카라트여 영원한 빛으로 날 보호하소서;;전능하신 아카라트여 영원한 빛으로 날 보호하소서;;</div>
                         <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                        <div class="storycards_bottom_story_morebtn">...<span>더 보기</span></div>
+                        <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
                     </div>
                     <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                     <div class="storycards_bottom_story_viewcomment">댓글 302개 모두 보기</div>
@@ -912,7 +913,7 @@
             </div>
         </div>
         <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
-        <div id="afterUpload" class="modalPopup" >
+        <div id="afterUpload" class="modalPopup">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
                 <button onclick="">다음</button>
@@ -921,14 +922,14 @@
 
             </div>
         </div>
-<!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
-        <div id="completePost" class="modalPopup" >
+        <!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
+        <div id="completePost" class="modalPopup">
             <div class="postHeader">
                 <p>새 게시물 만들기</p>
                 <button onclick="">공유하기</button>
             </div>
             <div class="postBody">
-                <div class="post_image"> </div>
+                <div class="post_image"></div>
                 <div class="post_text">
                     <div class="profile_card">
                         <div class="profile_card_img"></div>
@@ -952,6 +953,8 @@
 </div>
 
 <script src="../static/js/main-optionModal.js"></script>
+<script src="../static/js/main-storycardsShowMore.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -94,6 +94,7 @@
     position: relative;
 }
 
+
 /* 스토리카드 중단 캐러셀 이미지들 링크 */
 .caro_1 {
     background-image: url("https://i.ytimg.com/vi/jXfglu23oOs/maxresdefault.jpg");
@@ -324,7 +325,7 @@
 /* 스토리카드 하단 스토리 div */
 .storycards_bottom_story {
     width: 614px;
-    height: 76px;
+    /*height: 76px;*/
     display: flex;
     padding: 0 16px;
     box-sizing: border-box;
@@ -335,7 +336,7 @@
 /* 스토리카드 하단 스토리 내용부분 div */
 .storycards_bottom_story_detail {
     width: 582px;
-    height: 18px;
+    /*height: 18px;*/
     display: flex;
     flex-direction: row;
     /*background-color: #e375ff;*/
@@ -346,7 +347,7 @@
 /* 스토리카드 하단 스토리 댓글보기 div */
 .storycards_bottom_story_viewcomment {
     width: 582px;
-    height: 18px;
+    /*height: 18px;*/
     /*background-color: #e375ff;*/
     margin-bottom: 8px;
     font-size: 14px;
@@ -356,7 +357,7 @@
 /* 스토리카드 하단 스토리 포스트 div */
 .storycards_bottom_story_post {
     width: 582px;
-    height: 18px;
+    /*height: 18px;*/
     /*background-color: #e375ff;*/
     margin-bottom: 10px;
     font-size: 10px;
@@ -368,10 +369,26 @@
     font-weight: bold;
     margin-right: 3px;
 }
+/*스토리카드 하단 내용 본문*/
+.storycards_bottom_story_data{
+    display: block;
+    width: 430px;
+    margin-left: 10px;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+}
 
 /* 스토리카드 하단 내용 더보기 버튼 */
-.storycards_bottom_story_morebtn > span {
+.storycards_bottom_story_morebtn{
     color: #8e8e8e;
+    cursor: pointer;
 }
 
 /* 스토리카드 하단 코멘트 div */
