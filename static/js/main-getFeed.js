@@ -3,6 +3,8 @@ $(document).ready(function (){
 })
 
 function get_feed(){
+    $(".wrap_storycards").empty()
+
     $.ajax({
         type: "GET",
         url: "/getFeed",
