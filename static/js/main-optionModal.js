@@ -45,3 +45,7 @@ window.addEventListener("keyup", e => {
         document.querySelector('body').classList.remove('no-scroll');
     }
 })
+
+
+const postbtn = document.getElementById("postbtn")
+console.log(postbtn.innerText)
