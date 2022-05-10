@@ -69,7 +69,7 @@ function get_feed() {
                                                 <!--                                캐러셀 아이템-->
                                                 <div class="carousel-item active">
                                                     <img class="carousel-img post_main_picture_img d-block w-100"
-                                                         src="https://trees.gamemeca.com/wp-content/uploads/2019/11/191112_diablo2_2.jpg"
+                                                         src="{{url_for ('static', filename= ${i} )}}"
                                                          alt="...">
                                                 </div>
                                                 <div class="carousel-item">
