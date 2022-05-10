@@ -162,5 +162,28 @@ def show_mypage():
         # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
         return render_template('login.html')
 
+
+@app.route("/getPost", methods=['GET'])
+def send_posts():
+    users = db.user.find({})
+    posts = []
+    for user in users:
+        for post in user["posts"]:
+            post_data = {
+                "author_id": user["user_id"],
+                "post_img": post["img_title"],
+                "article": post["article"],
+                "like_post_ids": post["like_post_ids"],
+                "like_post_count": len(post["like_post_ids"]),
+                "post_create_time": post["post_create_time"],
+                "comments": post["comments"]
+            }
+            posts.append(post_data)
+
+    return jsonify({"result": posts[0:3]})
+
+
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
