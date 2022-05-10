@@ -7,7 +7,7 @@ import hashlib
 app = Flask(__name__)
 
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.nqwfa.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
 db = client.dbsparta_plus_week4
 
