@@ -253,6 +253,19 @@
 
 }
 
+/*로그아웃 버튼*/
+.footer_logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout_btn {
+    font-size: 12px;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
 /* 푸터 정보 회사 이름 div */
 .footer_info_corp {
     width: 325px;
