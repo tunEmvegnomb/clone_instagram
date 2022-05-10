@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 function get_feed() {
     $("#feeds").empty()
+    $("#feedModal").empty()
 
     $.ajax({
         type: "GET",
@@ -208,10 +209,75 @@ function get_feed() {
                                         </div>
                                     </div>
                                 </div>`
-
-                console.log()
                 $("#feeds").append(temp_html)
 
+                let temp_html2 = `<div id="feedModal" class="modalBackground">
+                                    <div class="modalWindow">
+                                        <div id="feedModalPop" class="modalPopup">
+                                            <div class="feedImage"></div>
+                                            <div class="feedContents">
+                                                <div class="feedProfile">
+                                                    <div>
+                                                        <div class="profile_icon"></div>
+                                                        <span>${name}</span>
+                                                        <i class="fa-solid fa-ellipsis s40"></i>
+                                                    </div>
+                                
+                                                </div>
+                                                <div class="feedInnerContent">
+                                                    <div>
+                                                        <div class="profile_icon"></div>
+                                                        <div class="content_inner">
+                                                            <span class="profile_name">${name}</span>
+                                                            <span>${content}</span>
+                                                            <p style="color: #8e8e8e; margin-top: 10px">5일</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="feedReaction">
+                                                    <div>
+                                                        <div class="reaction_icons">
+                                                            <button><i class="fa-regular fa-heart s24"></i></button>
+                                                            <button><i class="fa-regular fa-comment s24"></i></button>
+                                                            <button><i class="fa-regular fa-paper-plane s24"></i></button>
+                                                            <button style="width: 400px; padding-left: 310px"><i class="fa-regular fa-bookmark s24"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="storycards_bottom_likes_flex">
+                                                            <div class="storycards_bottom_likes_icons">
+                                                                <div class="storycards_bottom_likes_icons_icon profile_mona likes_icon1"></div>
+                                                                <div class="storycards_bottom_likes_icons_icon profile_love likes_icon2"></div>
+                                                                <div class="storycards_bottom_likes_icons_icon profile_van likes_icon3"></div>
+                                                            </div>
+                                                            <div class="storycards_bottom_likes_span">
+                                                                <span class="like_user">GoldVedio</span>님<span class="like_count"> 외 ${like_cnt}명</span>이 좋아합니다
+                                                            </div>
+                                                        </div>
+                                                        <div class="reaction_date">5일전</div>
+                                                    </div>
+                                                    <div class="storycards_bottom_comment reaction_comment">
+                                                        <div class="storycards_bottom_comment_flex" style="margin-left: 5px">
+                                                            <div class="storycards_bottom_comment_emoji">
+                                                                <i class="fa-regular fa-face-smile s24"></i>
+                                                            </div>
+                                                            <div class="storycards_bottom_comment_input">
+                                                                <input aria-label="입력 댓글" autocapitalize="none"
+                                                                       placeholder="댓글 달기..." type="text" style="width: 400px">
+                                                            </div>
+                                                            <div class="storycards_bottom_comment_postbtn">
+                                                                <a>게시</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <i class="fa-solid fa-xmark close" onclick="close_feedModal()"></i>
+                                        </div>
+                                    </div>
+                                </div>`
+                $("#feedModal").append(temp_html2)
             }
         }
     });
