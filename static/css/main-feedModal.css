@@ -18,6 +18,8 @@
 
     display: flex;
     flex-direction: row;
+
+    overflow: hidden;
 }
 .feedContents {
     max-width: 550px;
@@ -54,4 +56,34 @@
     width: 100%;
     height: 162px;
     background-color: palevioletred;
+}
+
+.feedProfile > div {
+    width: 100%;
+    height: 100%;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 프로필 이미지 */
+.feedProfile > div > div {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #0095f6;
+    margin-right: 12px;
+}
+
+.feedProfile > div > span {
+    width: 380px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.feedProfile > div > i {
+    font-size: 20px;
 }
