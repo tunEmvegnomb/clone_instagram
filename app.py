@@ -16,32 +16,40 @@ SECRET_KEY = 'SPARTA'
 
 @app.route('/')
 def home():
-    return render_template('mypage.html')
+    # return render_template('login.html')
 
-    # token_receive = request.cookies.get('mytoken')
-    # try:
-    #     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-    #     user_info = db.user.find_one({"id": payload['id']})
-    #     return render_template('main.html')
-    # except jwt.ExpiredSignatureError:
-    #     # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
-    #     return render_template('login.html')
-    #
-    # except jwt.exceptions.DecodeError:
-    #     # return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
-    #     return render_template('sign_up.html')
+    token_receive = request.cookies.get('mytoken')
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.user.find_one({"id": payload['id']})
+        return render_template('main.html')
+    except jwt.ExpiredSignatureError:
+        # return redirect(url_for("show_login"))
+        return render_template('login.html')
+
+    except jwt.exceptions.DecodeError:
+        # return redirect(url_for("show_login"))
+        return render_template('login.html')
 
 
-@app.route('/signup', methods=['POST'])
+@app.route('/signup', methods=['GET', 'POST'])
 def api_register():
-    id_receive = request.form['id_give']
-    pw_receive = request.form['pw_give']
+    if request.method == 'GET':
+        return render_template("sign_up.html")
+    elif request.method == 'POST':
+        id_receive = request.form['id_give']
+        pw_receive = request.form['pw_give']
 
-    pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
+        pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
 
-    db.user.insert_one({'id': id_receive, 'pw': pw_hash})
+        db.user.insert_one({'id': id_receive, 'pw': pw_hash})
 
-    return jsonify({'result': 'success'})
+        return jsonify({'result': 'success'})
+
+
+# @app.route('/loginpage')
+# def show_login():
+#     return render_template("login.html")
 
 
 # [로그인 API]
@@ -58,7 +66,7 @@ def api_login():
     if result is not None:
         payload = {
             'id': id_receive,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
@@ -66,21 +74,6 @@ def api_login():
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
-# 마이페이지 유저정보 로딩 테스트
-@app.route('/mypage', methods=['GET'])
-def show_mypage():
-
-    # 로그인에서 받은 mytoken 값 요청해서 저장
-    token_receive = request.args.get('mytoken')
-
-    # try 아래를 실행했다가, 에러가 있으면 except 실행.
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({'id': payload['id']}, {'_id': False})
-        return jsonify({'user_info': user_info})
-    except jwt.ExpiredSignatureError:
-        # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
-        return render_template('login.html')
 
 # [유저 정보 확인 API]
 # 로그인된 유저만 call 할 수 있는 API입니다.
@@ -109,6 +102,55 @@ def api_valid():
     except jwt.exceptions.DecodeError:
         return jsonify({'result': 'fail', 'msg': '로그인 정보가 존재하지 않습니다.'})
 
+
+# 이미지 업로드 API
+@app.route('/imageUpload', methods=['POST'])
+def input_image():
+    # 사용자 요청 : 이미지 파일
+    file_receive = request.files['file_give']
+    print(file_receive)
+    # API 처리
+    #   확장자 추출
+    extension = file_receive.filename.split('.')[-1]
+    fullname = file_receive.filename.split('.')[0]
+
+    #   이름 중복 방지를 위해 파일 이름 리네임
+    #   업로드 날짜 값 추가하기
+    today = datetime.datetime.now()
+    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+    filename = f'feed-{mytime}'
+
+    #   파일 경로 설정
+    save_to = f'static/img/{filename}.{extension}'
+    #   파일을 static/img 에 저장
+    file_receive.save(save_to)
+
+    #   파일 이름만 DB에 넣기
+    db.feeds.insert_one({'img':f'{filename}.{extension}'})
+
+
+    # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
+    return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
+
+@app.route('/feedUpload', methods=['POST'])
+def upload_feed():
+    token_receive = request.cookies.get('mytoken')
+    content_receive = request.form['content_give']
+
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+    doc = {
+        'id': payload['id'],
+        'content' : content_receive
+    }
+
+    db.feeds.insert_one(doc)
+
+    return  jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 =>'})
+
+@app.route('/mypage')
+def show_mypage():
+    return render_template('mypage.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
