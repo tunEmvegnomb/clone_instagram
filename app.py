@@ -246,7 +246,7 @@ def send_posts():
                     comments = None
             
                 post_data = {
-                    "post_id": post["post_id"],
+                    "post_id": "123456",
                     "author_id": user["user_id"],
                     "post_img": post["img_title"],
                     "article": post["article"],
