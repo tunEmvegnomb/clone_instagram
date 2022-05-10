@@ -170,7 +170,7 @@ def send_posts():
             }
             posts.append(post_data)
 
-    return jsonify({"result": posts})
+    return jsonify({"result": posts[0:3]})
 
 
 
