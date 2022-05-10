@@ -30,12 +30,12 @@
                 url: "/mypage",
                 data: {},
                 success: function (response) {
-                    alert('mypage get')
-                    console.log(response)
-                    // let rows = response['user_info']
-                    // for ( let i = 0; i < rows.length; i++) {
-                    //     console.log(rows[i])
-                    // }
+                    // alert('mypage get')
+                    // console.log(response)
+                    let rows = response['user_info']
+                    for ( let i = 0; i < rows.length; i++) {
+                        console.log(rows[i])
+                    }
                 }
             });
         }
