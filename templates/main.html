@@ -36,6 +36,21 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-feedModal.css') }}"/>
 
+    <style>
+        .footer_logout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        #logout_btn {
+            font-size: 12px;
+            color: #8e8e8e;
+            cursor: pointer;
+        }
+
+    </style>
 
 </head>
 <body>
@@ -887,6 +902,10 @@
                         <li>언어</li>
                     </ul>
                 </div>
+{#                            로그아웃 버튼#}
+                <div class="footer_logout">
+                    <div id="logout_btn" onclick="deleteCookie('mytoken')">로그아웃</div>
+                </div>
                 <!--                5. 푸터 정보 회사이름 div -->
                 <div class="footer_info_corp">© 2022 INSTAGRAM FROM META</div>
             </div>
@@ -1053,9 +1072,19 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous">
 </script>
+<<<<<<< HEAD
+<script>
+    let deleteCookie = function(name) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+        alert('로그아웃 되었습니다.');
+        window.location.href='/';
+    }
+</script>
+=======
 <!-- 파일 업로드 라이브러리 -->
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 
+>>>>>>> b49b8ad85b2e8a7bc70edb7b4aedf474b59bc060
 
 </body>
 </html>
