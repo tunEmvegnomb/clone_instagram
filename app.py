@@ -151,7 +151,7 @@ def upload_feed():
 @app.route('/mypage', methods=['GET'])
 def show_mypage():
     # 로그인에서 받은 mytoken 값 요청해서 저장
-    token_receive = request.args.get('mytoken')
+    token_receive = request.cookies.get('mytoken')
 
     # try 아래를 실행했다가, 에러가 있으면 except 실행.
     try:
