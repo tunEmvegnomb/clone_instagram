@@ -191,6 +191,19 @@ def show_mypage():
 
 @app.route("/getPost", methods=['GET'])
 def send_posts():
+    # 팔로우 하는 사람만 보여주고 싶다면
+    # token_receive = request.cookies.get('mytoken')
+    # payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    # user_id = payload['user_id']
+    #
+    # current_user = db.user.find_one({'user_id': user_id})
+    # current_user['follow']
+    # follows = []
+    # for follow in current_user['follow']:
+    #     follows.append(follow['follow_id'])
+    #
+    # users = list(db.user.find({'user_id': {'$in': follows}}, {'_id': 0}))
+
     users = db.user.find({}, {'_id': False})
     posts = []
     for user in users:
