@@ -126,11 +126,13 @@ def input_image():
 
 @app.route('/feedUpload', methods=['POST'])
 def upload_feed():
-    id_receive = request.form['id_give']
+    token_receive = request.cookies.get('mytoken')
     content_receive = request.form['content_give']
 
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
     doc = {
-        'id': id_receive,
+        'id': payload['id'],
         'content' : content_receive
     }
 
