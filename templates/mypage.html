@@ -17,6 +17,29 @@
     <link rel="stylesheet" href="../static/css/mypage-header.css">
     <link rel="stylesheet" href="../static/css/mypage.css">
     <link rel="stylesheet" href="../static/css/mypage-modal.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename ='css/main-newPostModal.css') }}"/>
+
+    <script>
+        $(document).ready(function () {
+            show_mypage()
+        });
+
+        function show_mypage() {
+            $.ajax({
+                type: "GET",
+                url: "/mypage",
+                data: {},
+                success: function (response) {
+                    alert('mypage get')
+                    console.log(response)
+                    // let rows = response['user_info']
+                    // for ( let i = 0; i < rows.length; i++) {
+                    //     console.log(rows[i])
+                    // }
+                }
+            });
+        }
+    </script>
 
 </head>
 <body>
@@ -102,7 +125,7 @@
                                 <!--                        5.2 plus 아이콘 div-->
                                 <div class="icons_div">
                                     <!--                            5.3 아이콘 이미지 i-->
-                                    <i class="fa-regular fa-square-plus icons_icons fa-xl"></i>
+                                    <i class="fa-regular fa-square-plus icons_icons fa-xl" onclick="open_newPostModal()"></i>
                                 </div>
                                 <!--                        5.2 compass 아이콘 div-->
                                 <div class="icons_div">
@@ -240,8 +263,79 @@
 <!--        모달 닫기버튼-->
         <button class="mypage_modal_close" id="mypage_modal_close"><i class="fa-solid fa-xmark"></i></button>
     </div>
+
+<!--newPostModal-->
+<!--주위 배경을 검게 만들어주는 태그-->
+    <div id="newPostModal" class="modalBackground">
+        <!--    모달 내용물이 들어갈 그릇 -->
+        <div class="modalWindow">
+            <!--        모달 내용물-->
+            <div id="beforeUpload" class="modalPopup">
+                <div class="postHeader">
+                    <p>새 게시물 만들기</p>
+                </div>
+                <div class="postBody">
+                    <div>
+                        <i class="fa-solid fa-photo-film"></i>
+                        <p>사진과 동영상을 여기다 끌어 놓으세요</p>
+                        <form method="post" enctype="multipart/form-data">
+                            <label for="file" style="margin: 3px auto;">컴퓨터에서 선택</label>
+                            <input id="file" type="file" style="display: none"
+                                   accept="image/*" onchange="loadFile(this)">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--        사진을 올린 뒤 다음을 눌러 나오는 업로드 모달-->
+            <div id="afterUpload" class="modalPopup">
+                <div class="postHeader">
+                    <p>새 게시물 만들기</p>
+                    <button onclick="show_completePost()">다음</button>
+                </div>
+                <div class="postBody imageBody">
+
+                </div>
+            </div>
+            <!--        애프터업로드 모달에서 다음을 눌러 나오는 내용 작성 및 업로드 모달 -->
+            <div id="completePost" class="modalPopup">
+                <div class="postHeader">
+                    <p>새 게시물 만들기</p>
+                    <button id="postbtn" onclick="complete_feedPost()">공유하기</button>
+                </div>
+                <div class="postBody">
+                    <div class="post_image"></div>
+                    <div class="post_text">
+                        <div class="profile_card">
+                            <div class="profile_card_img"></div>
+                            <div class="profile_card_name">gold_vedio</div>
+                        </div>
+                        <div class="text_card">
+                            <textarea aria-label="문구" type="text" placeholder="문구 입력..."></textarea>
+                            <div>
+                                <i class="fa-regular fa-face-grin-squint" style="font-size: 20px"></i>
+                            </div>
+                        </div>
+                        <div class="additional_card">
+                            <div>고급 옵션</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--        화면 닫기 아이콘-->
+            <i class="fa-solid fa-xmark close" onclick="close_newPostModal()"></i>
+        </div>
+    </div>
+
+
 <!--    모달 js파일 불러오기-->
-    <script src="../static/js/mypage-modal.js">
-    </script>
+    <script src="../static/js/mypage-modal.js"></script>
+
+    <script src="{{ url_for('static', filename ='js/main-newPostModal.js') }}"></script>
+    <script src="{{ url_for('static', filename ='js/main-imageUpload.js') }}"></script>
+
+<!-- 파일 업로드 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+
 </body>
 </html>
