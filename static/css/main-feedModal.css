@@ -47,15 +47,21 @@
 
 .feedInnerContent {
     width: 100%;
-    height: 708px;
+    height: 688px;
     padding: 16px;
     box-sizing: border-box;
+    box-shadow: 0 1px #8e8e8e;
 }
 
 .feedReaction {
     width: 100%;
-    height: 182px;
-    background-color: palevioletred;
+    height: 202px;
+    display: flex;
+    flex-direction: column;
+}
+
+.feedReaction > div {
+    width: 100%;
 }
 
 .feedProfile > div {
@@ -107,4 +113,35 @@
     font-weight: bold;
 }
 
+.reaction_icons {
+    width: 100%;
+    height: 55px;
+    padding: 6px 16px 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
 
+.reaction_icons > button {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,-1);
+    border: 0;
+}
+
+.reaction_date {
+    font-size: 12px;
+    color: #8e8e8e;
+    margin: 10px 0 0 18px;
+
+}
+
+.reaction_comment {
+    width: 100%;
+    height: 40px;
+    margin-top: 8px;
+    box-shadow: 0 -1px #dbdbdb;
+}
