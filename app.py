@@ -22,7 +22,10 @@ def home():
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
         user_info = db.user.find_one({"user_id": payload['user_id']})
-        return render_template('main.html')
+        if user_info:
+            return render_template('main.html')
+        else:
+            return render_template('login.html')
     except jwt.ExpiredSignatureError:
         # return redirect(url_for("show_login"))
         return render_template('login.html')
