@@ -61,11 +61,11 @@ def api_login():
 
     pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
 
-    result = db.user.find_one({'id': id_receive, 'pw': pw_hash})
+    result = db.user.find_one({'user_id': id_receive, 'hashed_password': pw_hash})
 
     if result is not None:
         payload = {
-            'id': id_receive,
+            'user_id': id_receive,
             'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60*24)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
@@ -94,7 +94,7 @@ def api_valid():
 
         # payload 안에 id가 들어있습니다. 이 id로 유저정보를 찾습니다.
         # 여기에선 그 예로 닉네임을 보내주겠습니다.
-        userinfo = db.user.find_one({'id': payload['id']}, {'_id': 0})
+        userinfo = db.user.find_one({'user_id': payload['user_id']}, {'_id': 0})
         return jsonify({'result': 'success', 'nickname': userinfo['nick']})
     except jwt.ExpiredSignatureError:
         # 위를 실행했는데 만료시간이 지났으면 에러가 납니다.
@@ -139,14 +139,16 @@ def upload_feed():
 
     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
+    now = datetime.datetime.now()
     doc = {
-        'id': payload['id'],
-        'content' : content_receive
+            'post_create_time': now,
+            'img_title': None,
+            'article': content_receive
     }
 
-    db.feeds.insert_one(doc)
+    db.user.update_one({'user_id': payload['user_id']}, {'$push': {'posts': doc}}, upsert=True)
 
-    return  jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 =>'})
+    return jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 =>'})
 
 @app.route('/mypage')
 def show_mypage():
@@ -159,6 +161,7 @@ def send_posts():
     posts = []
     for user in users:
         for post in user["posts"]:
+            # if post is not None:
             post_data = {
                 "author_id": user["user_id"],
                 "post_img": post["img_title"],
@@ -169,8 +172,10 @@ def send_posts():
                 "comments": post["comments"]
             }
             posts.append(post_data)
+        # 시간순 정렬
+    datas = sorted(posts, key=lambda post: post["post_create_time"])
 
-    return jsonify({"result": posts[0:3]})
+    return jsonify({"result": datas})
 
 
 
