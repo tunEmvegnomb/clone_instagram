@@ -22,20 +22,66 @@
     <script>
         $(document).ready(function () {
             show_mypage()
+            mypage_load()
         });
 
+// 마이페이지 불러오기
         function show_mypage() {
             $.ajax({
                 type: "GET",
                 url: "/mypage",
                 data: {},
                 success: function (response) {
-                    // alert('mypage get')
+                    alert('mypage get')
+                }
+            });
+        }
+
+// 마이페이지 데이터 로드
+        function mypage_load() {
+            $.ajax({
+                type: "GET",
+                url: "/mypage/load",
+                data: {},
+                success: function (response) {
                     // console.log(response)
-                    let rows = response['user_info']
-                    for ( let i = 0; i < rows.length; i++) {
-                        console.log(rows[i])
-                    }
+                    let rows = response['mypage_info']
+
+                    // console.log(rows['follow'])
+                    let user_img = rows['posts']['0']['img_title']
+                    let user_id = rows['user_id']
+                    let posts_len = rows['posts'].length
+                    let follower_len = rows['follower'].length
+                    let follow_len = rows['follow'].length
+
+                    let temp_html = `<div class="mypage_profile_img">
+<!--현재 로그인 계정 프로필 이미지 받아오기-->
+                                        <img id="profile_img" src="${user_img}" class="rounded-circle" style="width:150px; height:150px;">
+                                    </div>
+<!--현재 로그인 계정의 id, 게시물 수, 팔로워 수 , 팔로잉 수 받아오기-->
+                                    <div class="mypage_user_info">
+                                        <div class="mypage_userID">
+                                            <h2>${user_id}</h2>
+                                            &emsp;<button class="profile_edit_btn">프로필 편집</button>
+                                        </div>
+                                        <div class="mypage_user_properties">
+                                            게시물 ${posts_len}
+                                            &emsp;팔로워 ${follower_len}
+                                            &emsp;팔로우 ${follow_len}
+                                        </div>
+                                    </div>`
+
+                    $('#mypage_profile').append(temp_html)
+
+                    // console.log(user_id)
+                    // console.log(posts_len)
+                    // console.log(follower_len)
+                    // console.log(follow_len)
+
+
+                    // for ( let i = 0; i < rows.length; i++) {
+                    //     console.log(rows[i])
+                    //     }
                 }
             });
         }
@@ -152,23 +198,23 @@
 <!--마이페이지 전체-->
     <div class="mypage_main">
 <!--마이페이지 상단 프로필 정보-->
-        <div class="mypage_profile">
-            <div class="mypage_profile_img">
-<!--현재 로그인 계정 프로필 이미지 받아오기-->
-                <img src="../static/img/test_img.jpg" class="rounded-circle" style="width:150px; height:150px;">
-            </div>
-<!--현재 로그인 계정의 id, 게시물 수, 팔로워 수 , 팔로잉 수 받아오기-->
-            <div class="mypage_user_info">
-                <div class="mypage_userID">
-                    <h2>user_id</h2>
-                    &emsp;<button class="profile_edit_btn">프로필 편집</button>
-                </div>
-                <div class="mypage_user_properties">
-                    게시물
-                    &emsp;팔로워
-                    &emsp;팔로우
-                </div>
-            </div>
+        <div class="mypage_profile" id="mypage_profile">
+<!--            <div class="mypage_profile_img">-->
+<!--&lt;!&ndash;현재 로그인 계정 프로필 이미지 받아오기&ndash;&gt;-->
+<!--                <img id="profile_img" src="../static/img/test_img.jpg" class="rounded-circle" style="width:150px; height:150px;">-->
+<!--            </div>-->
+<!--&lt;!&ndash;현재 로그인 계정의 id, 게시물 수, 팔로워 수 , 팔로잉 수 받아오기&ndash;&gt;-->
+<!--            <div class="mypage_user_info">-->
+<!--                <div class="mypage_userID">-->
+<!--                    <h2>user_id</h2>-->
+<!--                    &emsp;<button class="profile_edit_btn">프로필 편집</button>-->
+<!--                </div>-->
+<!--                <div class="mypage_user_properties">-->
+<!--                    게시물-->
+<!--                    &emsp;팔로워-->
+<!--                    &emsp;팔로우-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
         <hr>
         <br>
