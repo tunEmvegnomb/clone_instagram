@@ -215,7 +215,7 @@ def mypage_load():
     # try 아래를 실행했다가, 에러가 있으면 except 실행.
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        mypage_info = db.user.find_one({'user_id': payload['id']}, {'_id': False})
+        mypage_info = db.user.find_one({'user_id': payload['user_id']}, {'_id': False})
         return jsonify({'mypage_info': mypage_info})
     except jwt.ExpiredSignatureError:
         # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
