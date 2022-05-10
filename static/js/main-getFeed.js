@@ -23,7 +23,7 @@ function get_feed() {
                 let name = data[i]['author_id']
                 let like_cnt = data[i]['like_post_count']
                 let content = data[i]['article']
-                let post_image = data[i]['img_title']
+                let post_image = data[i]['post_img']
                 let post_id = data[i]['post_id']
                 console.log(name)
                 // let num = data['index_num']
@@ -71,17 +71,17 @@ function get_feed() {
                                                 <!--                                캐러셀 아이템-->
                                                 <div class="carousel-item active">
                                                     <img class="carousel-img post_main_picture_img d-block w-100"
-                                                         src="https://on-winning.com/wp-content/uploads/2016/05/overwatch-heroes.jpg"
+                                                         src=${post_image}
                                                          alt="...">
                                                 </div>
                                                 <div class="carousel-item">
                                                     <img class="carousel-img post_main_picture_img d-block w-100"
-                                                         src="https://i.redd.it/l5k1wclerzi61.jpg"
+                                                         src=${post_image}
                                                          alt="...">
                                                 </div>
                                                 <div class="carousel-item">
                                                     <img class="carousel-img post_main_picture_img d-block w-100"
-                                                         src="https://p4.wallpaperbetter.com/wallpaper/570/244/986/diablo-diablo-immortal-diablo-2-diablo-3-reaper-of-souls-diablo-4-hd-wallpaper-preview.jpg"
+                                                         src=${post_image}
                                                          alt="...">
                                                 </div>
                                             </div>
