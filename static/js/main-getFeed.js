@@ -24,6 +24,7 @@ function get_feed() {
                 let like_cnt = data[i]['like_post_count']
                 let content = data[i]['article']
                 let post_image = data[i]['img_title']
+                let post_id = data[i]['post_id']
                 console.log(name)
                 // let num = data['index_num']
 
@@ -208,6 +209,7 @@ function get_feed() {
                                             </div>
                                         </div>
                                     </div>
+                                    <div id="post_id" style="display: none">${post_id}</div>
                                 </div>`
                 $("#feeds").append(temp_html)
 
