@@ -179,10 +179,10 @@ function get_feed() {
                                                 <!--                    7. 스토리카드 하단 스토리 아이디 div -->
                                                 <div class="storycards_bottom_story_user">${name}</div>
                                                 <!--                    7. 스토리카드 하단 스토리 내용 div -->
-                                                <div class="storycards_bottom_story_data">${content}
+                                                <div class="storycards_bottom_story_data feed_desc${i+1}">${content}
                                                 </div>
                                                 <!--                    7. 스토리카드 하단 스토리 더보기 버튼-->
-                                                <div class="storycards_bottom_story_morebtn" onclick="show_me_more(this.id)">더 보기</div>
+                                                <div class="storycards_bottom_story_morebtn seeMore_btn${i+1}" onclick="show_me_more(${i+1})">더 보기</div>
                                             </div>
                                             <!--                    6. 스토리카드 하단 스토리 댓글보기 div -->
                                             <div class="storycards_bottom_story_viewcomment">댓글 8개 모두 보기</div>
