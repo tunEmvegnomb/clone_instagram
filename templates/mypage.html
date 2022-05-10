@@ -18,6 +18,27 @@
     <link rel="stylesheet" href="../static/css/mypage.css">
     <link rel="stylesheet" href="../static/css/mypage-modal.css">
 
+    <script>
+        $(document).ready(function () {
+            show_mypage()
+        });
+        function show_mypage() {
+            $.ajax({
+                type: "GET",
+                url: "/mypage",
+                data: {},
+                success: function (response) {
+                    alert('mypage get')
+                    console.log(response)
+                    // let rows = response['user_info']
+                    // for ( let i = 0; i < rows.length; i++) {
+                    //     console.log(rows[i])
+                    // }
+                }
+            });
+        }
+    </script>
+
 </head>
 <body>
     <header>
@@ -224,7 +245,6 @@
                     <div class="modal_rightbox_body">
                         <img src="../static/img/test_img.jpg" class="rounded-circle" style="width:40px; height:40px;">
                         &ensp; user_id &ensp; 본문 내용이 들어갑니다.
-
                         <div class="comment_saved">
                         여기서부터는 댓글 기록
                         </div>
