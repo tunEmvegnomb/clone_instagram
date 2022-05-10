@@ -16,20 +16,20 @@ SECRET_KEY = 'SPARTA'
 
 @app.route('/')
 def home():
-    # return render_template('login.html')
+    return render_template('mypage.html')
 
-    token_receive = request.cookies.get('mytoken')
-    try:
-        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({"id": payload['id']})
-        return render_template('main.html')
-    except jwt.ExpiredSignatureError:
-        # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
-        return render_template('login.html')
-
-    except jwt.exceptions.DecodeError:
-        # return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
-        return render_template('sign_up.html')
+    # token_receive = request.cookies.get('mytoken')
+    # try:
+    #     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    #     user_info = db.user.find_one({"id": payload['id']})
+    #     return render_template('main.html')
+    # except jwt.ExpiredSignatureError:
+    #     # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+    #     return render_template('login.html')
+    #
+    # except jwt.exceptions.DecodeError:
+    #     # return redirect(url_for("login", msg="로그인 정보가 존재하지 않습니다."))
+    #     return render_template('sign_up.html')
 
 
 @app.route('/signup', methods=['POST'])
@@ -58,7 +58,7 @@ def api_login():
     if result is not None:
         payload = {
             'id': id_receive,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
@@ -66,6 +66,21 @@ def api_login():
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
 
+# 마이페이지 유저정보 로딩 테스트
+@app.route('/mypage', methods=['GET'])
+def show_mypage():
+
+    # 로그인에서 받은 mytoken 값 요청해서 저장
+    token_receive = request.args.get('mytoken')
+
+    # try 아래를 실행했다가, 에러가 있으면 except 실행.
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.user.find_one({'id': payload['id']}, {'_id': False})
+        return jsonify({'user_info': user_info})
+    except jwt.ExpiredSignatureError:
+        # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+        return render_template('login.html')
 
 # [유저 정보 확인 API]
 # 로그인된 유저만 call 할 수 있는 API입니다.
