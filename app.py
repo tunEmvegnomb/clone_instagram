@@ -7,7 +7,7 @@ import hashlib
 app = Flask(__name__)
 
 
-client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb+srv://test:sparta@cluster0.nqwfa.mongodb.net/Cluster0?retryWrites=true&w=majority')
 
 db = client.dbsparta_plus_week4
 
@@ -66,7 +66,7 @@ def api_login():
     if result is not None:
         payload = {
             'id': id_receive,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60)
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=60*60*24)
         }
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
 
