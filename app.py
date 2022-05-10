@@ -42,7 +42,15 @@ def api_register():
 
         pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
 
-        db.user.insert_one({'id': id_receive, 'pw': pw_hash})
+        doc = {
+            'user_id': id_receive,
+            'hashed_password': pw_hash,
+            'follow': [],
+            'follower': [],
+            'posts': []
+        }
+        
+        db.user.insert_one(doc)
 
         return jsonify({'result': 'success'})
 
@@ -104,51 +112,77 @@ def api_valid():
 
 
 # 이미지 업로드 API
-@app.route('/imageUpload', methods=['POST'])
-def input_image():
+# @app.route('/imageUpload', methods=['POST'])
+# def input_image():
+#     # 사용자 요청 : 이미지 파일
+#     file_receive = request.files['file_give']
+#     print(file_receive)
+#     # API 처리
+#     #   확장자 추출
+#     extension = file_receive.filename.split('.')[-1]
+#     fullname = file_receive.filename.split('.')[0]
+#
+#     #   이름 중복 방지를 위해 파일 이름 리네임
+#     #   업로드 날짜 값 추가하기
+#     today = datetime.datetime.now()
+#     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
+#     filename = f'feed-{mytime}'
+#
+#     #   파일 경로 설정
+#     save_to = f'static/img/{filename}.{extension}'
+#     #   파일을 static/img 에 저장
+#     file_receive.save(save_to)
+#
+#     #   파일 이름만 DB에 넣기
+#     db.feeds.insert_one({'img':f'{filename}.{extension}'})
+#
+#
+#     # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
+#     return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
+
+@app.route('/feedUpload', methods=['POST'])
+def upload_feed():
     # 사용자 요청 : 이미지 파일
     file_receive = request.files['file_give']
-    print(file_receive)
     # API 처리
     #   확장자 추출
     extension = file_receive.filename.split('.')[-1]
     fullname = file_receive.filename.split('.')[0]
-
+    
     #   이름 중복 방지를 위해 파일 이름 리네임
     #   업로드 날짜 값 추가하기
-    today = datetime.datetime.now()
-    mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
-    filename = f'feed-{mytime}'
-
+    now = datetime.datetime.now()
+    time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
+    filename = f'feed-{time_now}'
+    
     #   파일 경로 설정
     save_to = f'static/img/{filename}.{extension}'
     #   파일을 static/img 에 저장
     file_receive.save(save_to)
-
+    
     #   파일 이름만 DB에 넣기
-    db.feeds.insert_one({'img':f'{filename}.{extension}'})
-
-
-    # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
-    return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
-
-@app.route('/feedUpload', methods=['POST'])
-def upload_feed():
+    db.feeds.insert_one({'img': f'{filename}.{extension}'})
+    ############################################################################
+    # 본문 업로드 부분
     token_receive = request.cookies.get('mytoken')
     content_receive = request.form['content_give']
 
     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
     now = datetime.datetime.now()
+    time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
     doc = {
-            'post_create_time': now,
-            'img_title': None,
-            'article': content_receive
+        'post_create_time': time_now,
+        'img_title': f'{filename}.{extension}',
+        'article': content_receive,
+        'like_post_ids': [],
+        'comments': []
     }
 
     db.user.update_one({'user_id': payload['user_id']}, {'$push': {'posts': doc}}, upsert=True)
 
-    return jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 =>'})
+    return jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 '})
+
 
 @app.route('/mypage')
 def show_mypage():
@@ -157,24 +191,35 @@ def show_mypage():
 
 @app.route("/getPost", methods=['GET'])
 def send_posts():
-    users = db.user.find({})
+    users = db.user.find({}, {'_id': False})
     posts = []
     for user in users:
         for post in user["posts"]:
-            # if post is not None:
-            post_data = {
-                "author_id": user["user_id"],
-                "post_img": post["img_title"],
-                "article": post["article"],
-                "like_post_ids": post["like_post_ids"],
-                "like_post_count": len(post["like_post_ids"]),
-                "post_create_time": post["post_create_time"],
-                "comments": post["comments"]
-            }
-            posts.append(post_data)
-        # 시간순 정렬
+            if len(post) != 0:
+                if len(post["like_post_ids"]) != 0:
+                    like_post_ids = post["like_post_ids"]
+                    like_post_count = len(post["like_post_ids"])
+                else:
+                    like_post_ids = None
+                    like_post_count = None
+                if len(post["comments"]) != 0:
+                    comments = post["comments"]
+                else:
+                    comments = None
+            
+                post_data = {
+                    "author_id": user["user_id"],
+                    "post_img": post["img_title"],
+                    "article": post["article"],
+                    "like_post_ids": like_post_ids,
+                    "like_post_count": like_post_count,
+                    "post_create_time": post["post_create_time"],
+                    "comments": comments
+                }
+                posts.append(post_data)
+            # 시간순 정렬 최근 것이 먼저 오도록
     datas = sorted(posts, key=lambda post: post["post_create_time"])
-
+    datas.reverse()
     return jsonify({"result": datas})
 
 
@@ -186,19 +231,19 @@ def to_follow():
     follow_id_receive = request.form['follow_id_give']
 
     now = datetime.datetime.now()
+    time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
     doc_follow = {
             'follow_id': follow_id_receive,
-            'follow_time': now,
+            'follow_time': time_now,
     }
     doc_follower = {
             'follower_id': payload['user_id'],
-            'follower_time': now,
+            'follower_time': time_now,
     }
 
     db.user.update_one({'user_id': payload['user_id']}, {'$push': {'follow': doc_follow}}, upsert=True)
     db.user.update_one({'user_id': follow_id_receive}, {'$push': {'follower': doc_follower}}, upsert=True)
     return jsonify({'result': 'success', 'msg': '팔로우 완료'})
-
 
 
 if __name__ == '__main__':
