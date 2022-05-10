@@ -106,6 +106,12 @@ def create_post():
         }
     ]}})
 
+# 마이페이지 테스트
+@app.route("/mypage", methods=["GET"])
+def show_mypage():
+    user_info = list(db.user.find({}))
+    return jsonify({'result': user_info})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
