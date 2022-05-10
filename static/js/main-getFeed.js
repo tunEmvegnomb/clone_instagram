@@ -1,27 +1,30 @@
-$(document).ready(function (){
+$(document).ready(function () {
     get_feed()
 })
 
-function get_feed(){
-    $(".wrap_storycards").empty()
+function get_feed() {
+    $("#feeds").empty()
 
     $.ajax({
         type: "GET",
         url: "/getFeed",
-        data: form_data,
+        data: {},
         cache: false,
         contentType: false,
         processData: false,
         success: function (response) {
             console.log(response)
             alert('피드 불러오기!')
-            let data = response['data']
-            for (i=0; i<data.length; i++){
-                // 임시로 값 선언. 맞는 값 아님
-                let name = data['name']
-                let like_cnt = data['like_cnt']
-                let content = data['content']
-                let num = data['index_num']
+            let data = response['result'][0]
+            console.log(data)
+
+            // 임시로 값 선언. 맞는 값 아님
+                let name = data['author_id']
+                let like_cnt = data['like_post_count']
+                let content = data['article']
+                let post_image = data['img_title']
+                console.log(post_image)
+                // let num = data['index_num']
 
                 let temp_html = `<div class="wrap_storycards">
                                     <!--            4. 스토리카드 상단 div -->
@@ -43,7 +46,7 @@ function get_feed(){
                                             <!--                    6. 스토리카드 상단 옵션 div -->
                                             <div class="storycards_top_option">
                         
-                                                <i class="fa-solid fa-ellipsis s40 option-modal${num}" onclick="showOptionModal(${num})"></i>
+                                                <i class="fa-solid fa-ellipsis s40 option-modal1" onclick="showOptionModal(1)"></i>
                         
                                             </div>
                                         </div>
@@ -205,7 +208,11 @@ function get_feed(){
                                         </div>
                                     </div>
                                 </div>`
-                                $(main.last()).append(temp_html)
+
+                console.log(temp_html)
+                $("#feeds").append(temp_html)
+            for (i = 0; i < data.length; i++) {
+
 
             }
         }

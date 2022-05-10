@@ -163,12 +163,14 @@ def show_mypage():
         return render_template('login.html')
 
 
-@app.route("/getPost", methods=['GET'])
+@app.route("/getFeed", methods=['GET'])
 def send_posts():
     users = db.user.find({})
     posts = []
     for user in users:
+        print(user)
         for post in user["posts"]:
+            print(post)
             post_data = {
                 "author_id": user["user_id"],
                 "post_img": post["img_title"],
