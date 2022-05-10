@@ -21,8 +21,11 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({"id": payload['id']})
-        return render_template('main.html')
+        user_info = db.user.find_one({"user_id": payload['user_id']})
+        if user_info:
+            return render_template('main.html')
+        else:
+            return render_template('login.html')
     except jwt.ExpiredSignatureError:
         # return redirect(url_for("show_login"))
         return render_template('login.html')
@@ -112,56 +115,70 @@ def api_valid():
 
 
 # 이미지 업로드 API
-# @app.route('/imageUpload', methods=['POST'])
-# def input_image():
-#     # 사용자 요청 : 이미지 파일
-#     file_receive = request.files['file_give']
-#     print(file_receive)
-#     # API 처리
-#     #   확장자 추출
-#     extension = file_receive.filename.split('.')[-1]
-#     fullname = file_receive.filename.split('.')[0]
-#
-#     #   이름 중복 방지를 위해 파일 이름 리네임
-#     #   업로드 날짜 값 추가하기
-#     today = datetime.datetime.now()
-#     mytime = today.strftime('%Y-%m-%d-%H-%M-%S')
-#     filename = f'feed-{mytime}'
-#
-#     #   파일 경로 설정
-#     save_to = f'static/img/{filename}.{extension}'
-#     #   파일을 static/img 에 저장
-#     file_receive.save(save_to)
-#
-#     #   파일 이름만 DB에 넣기
-#     db.feeds.insert_one({'img':f'{filename}.{extension}'})
-#
-#
-#     # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
-#     return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
+@app.route('/imageUpload', methods=['POST'])
+def input_image():
+    token_receive = request.cookies.get('mytoken')
 
-@app.route('/feedUpload', methods=['POST'])
-def upload_feed():
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
     # 사용자 요청 : 이미지 파일
     file_receive = request.files['file_give']
+    # print(file_receive)
     # API 처리
     #   확장자 추출
     extension = file_receive.filename.split('.')[-1]
     fullname = file_receive.filename.split('.')[0]
-    
+
     #   이름 중복 방지를 위해 파일 이름 리네임
     #   업로드 날짜 값 추가하기
     now = datetime.datetime.now()
     time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
     filename = f'feed-{time_now}'
-    
+
     #   파일 경로 설정
     save_to = f'static/img/{filename}.{extension}'
     #   파일을 static/img 에 저장
     file_receive.save(save_to)
-    
+
+    post_id = hashlib.sha256((payload['user_id']+time_now).encode('utf-8')).hexdigest()
+
     #   파일 이름만 DB에 넣기
-    db.feeds.insert_one({'img': f'{filename}.{extension}'})
+    doc = {
+        'post_id': post_id,
+        'post_create_time': time_now,
+        'img_title': save_to,
+        'article': "uploading",
+        'like_post_ids': [],
+        'comments': []
+    }
+    db.user.update_one({'user_id': payload['user_id']}, {'$push': {'posts': doc}}, upsert=True)
+
+
+    # 응답데이터 : 결과 성공 / 이미지 업로드 성공 메시지 /
+    return jsonify({'result':'success', 'msg': '이미지 업로드에 성공했습니다.', 'filename': save_to})
+
+@app.route('/feedUpload', methods=['POST'])
+def upload_feed():
+    # # 사용자 요청 : 이미지 파일
+    # file_receive = request.files['file_give']
+    # # API 처리
+    # #   확장자 추출
+    # extension = file_receive.filename.split('.')[-1]
+    # fullname = file_receive.filename.split('.')[0]
+    #
+    # #   이름 중복 방지를 위해 파일 이름 리네임
+    # #   업로드 날짜 값 추가하기
+    # now = datetime.datetime.now()
+    # time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
+    # filename = f'feed-{time_now}'
+    #
+    # #   파일 경로 설정
+    # save_to = f'static/img/{filename}.{extension}'
+    # #   파일을 static/img 에 저장
+    # file_receive.save(save_to)
+    #
+    # #   파일 이름만 DB에 넣기
+    # db.feeds.insert_one({'img': f'{filename}.{extension}'})
     ############################################################################
     # 본문 업로드 부분
     token_receive = request.cookies.get('mytoken')
@@ -172,14 +189,14 @@ def upload_feed():
     now = datetime.datetime.now()
     time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
     doc = {
-        'post_create_time': time_now,
-        'img_title': f'{filename}.{extension}',
+        # 'post_create_time': time_now,
+        # 'img_title': f'{filename}.{extension}',
         'article': content_receive,
-        'like_post_ids': [],
-        'comments': []
+        # 'like_post_ids': [],
+        # 'comments': []
     }
 
-    db.user.update_one({'user_id': payload['user_id']}, {'$push': {'posts': doc}}, upsert=True)
+    db.user.update_one({'user_id': payload['user_id'], 'posts': {"$elemMatch": {'article': "uploading"}}}, {'$set': {'posts.$': doc}}, upsert=True)
 
     return jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 '})
 
@@ -207,6 +224,19 @@ def mypage_load():
 
 @app.route("/getFeed", methods=['GET'])
 def send_posts():
+    # 팔로우 하는 사람만 보여주고 싶다면
+    # token_receive = request.cookies.get('mytoken')
+    # payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    # user_id = payload['user_id']
+    #
+    # current_user = db.user.find_one({'user_id': user_id})
+    # current_user['follow']
+    # follows = []
+    # for follow in current_user['follow']:
+    #     follows.append(follow['follow_id'])
+    #
+    # users = list(db.user.find({'user_id': {'$in': follows}}, {'_id': 0}))
+
     users = db.user.find({}, {'_id': False})
     posts = []
     for user in users:
@@ -225,6 +255,7 @@ def send_posts():
                     comments = None
             
                 post_data = {
+                    "post_id": post["post_id"],
                     "author_id": user["user_id"],
                     "post_img": post["img_title"],
                     "article": post["article"],
@@ -261,6 +292,42 @@ def to_follow():
     db.user.update_one({'user_id': payload['user_id']}, {'$push': {'follow': doc_follow}}, upsert=True)
     db.user.update_one({'user_id': follow_id_receive}, {'$push': {'follower': doc_follower}}, upsert=True)
     return jsonify({'result': 'success', 'msg': '팔로우 완료'})
+
+
+@app.route('/comment/create', methods=['POST'])
+def write_comment():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    author_id_receive = request.form['author_id_give']
+    comment_receive = request.form['comment_give']
+    post_id_receive = request.form['post_id_give']
+    now = datetime.datetime.now()
+    time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
+    
+    doc = {
+        'commenter_id': payload['user_id'],
+        'comment_article': comment_receive,
+        'comment_create_time': time_now,
+        'comment_update_time': None,
+        'like_comment': []
+    }
+    
+    db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}}, {'$push': {'comments.$': doc}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '댓글달기 완료'})
+
+
+@app.route('/like/post', methods=['POST'])
+def like_post():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    author_id_receive = request.form['author_id_give']
+    post_id_receive = request.form['post_id_give']
+    
+    doc = payload['user_id']
+    
+    db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}},
+                       {'$push': {'like_post_ids': doc}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '피드 좋아요 완료'})
 
 
 if __name__ == '__main__':
