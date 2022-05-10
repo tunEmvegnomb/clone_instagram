@@ -148,9 +148,19 @@ def upload_feed():
 
     return  jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 =>'})
 
-@app.route('/mypage')
+@app.route('/mypage', methods=['GET'])
 def show_mypage():
-    return render_template('mypage.html')
+    # 로그인에서 받은 mytoken 값 요청해서 저장
+    token_receive = request.args.get('mytoken')
+
+    # try 아래를 실행했다가, 에러가 있으면 except 실행.
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.user.find_one({'id': payload['id']}, {'_id': False})
+        return jsonify({'user_info': user_info})
+    except jwt.ExpiredSignatureError:
+        # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+        return render_template('login.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
