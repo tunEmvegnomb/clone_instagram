@@ -306,5 +306,20 @@ def write_comment():
     db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}}, {'$push': {'comments.$': doc}}, upsert=True)
     return jsonify({'result': 'success', 'msg': '댓글달기 완료'})
 
+
+@app.route('/like/post', methods=['POST'])
+def like_post():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    author_id_receive = request.form['author_id_give']
+    post_id_receive = request.form['post_id_give']
+    
+    doc = payload['user_id']
+    
+    db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}},
+                       {'$push': {'like_post_ids': doc}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '피드 좋아요 완료'})
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
