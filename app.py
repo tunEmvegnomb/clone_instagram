@@ -184,12 +184,22 @@ def upload_feed():
     return jsonify({'result': 'success', 'msg': '새 피드를 등록했습니다 '})
 
 
-@app.route('/mypage')
+@app.route('/mypage', methods=['GET'])
 def show_mypage():
-    return render_template('mypage.html')
+    # 로그인에서 받은 mytoken 값 요청해서 저장
+    token_receive = request.args.get('mytoken')
+
+    # try 아래를 실행했다가, 에러가 있으면 except 실행.
+    try:
+        payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+        user_info = db.user.find_one({'id': payload['id']}, {'_id': False})
+        return jsonify({'user_info': user_info})
+    except jwt.ExpiredSignatureError:
+        # return redirect(url_for("login", msg="로그인 시간이 만료되었습니다."))
+        return render_template('login.html')
 
 
-@app.route("/getPost", methods=['GET'])
+@app.route("/getFeed", methods=['GET'])
 def send_posts():
     # 팔로우 하는 사람만 보여주고 싶다면
     # token_receive = request.cookies.get('mytoken')
@@ -207,6 +217,7 @@ def send_posts():
     users = db.user.find({}, {'_id': False})
     posts = []
     for user in users:
+        print(user)
         for post in user["posts"]:
             if len(post) != 0:
                 if len(post["like_post_ids"]) != 0:
