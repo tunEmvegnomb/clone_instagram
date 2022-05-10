@@ -43,3 +43,21 @@ function show_completePost() {
 
 }
 
+function complete_feedPost(){
+    let feed_content = $(".text_card > textarea").val()
+    let form_data = new FormData()
+    form_data.append("content_give",feed_content)
+
+    $.ajax({
+        type: "POST",
+        url: "/feedUpload",
+        data: form_data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            alert(response["msg"])
+            window.location.reload()
+        }
+    });
+}
