@@ -55,14 +55,14 @@ function get_feed() {
                                     <!--            4. 스토리카드 중단 div -->
                                     <div class="storycards_middle">
                                         <!--                5. 스토리카드 중단 캐러셀 div -->
-                                        <div id="carousel-one" class="carousel slide" data-bs-ride="carousel">
+                                        <div id="carousel-${i+1}" class="carousel slide" data-bs-ride="carousel">
                                             <!--                    캐러셀 인디케이터 -->
                                             <div class="carousel-indicators">
-                                                <button type="button" data-bs-target="#carousel-one" data-bs-slide-to="0"
+                                                <button type="button" data-bs-target="#carousel-${i+1}" data-bs-slide-to="0"
                                                         class="active" aria-current="true" aria-label="Slide 1"></button>
-                                                <button type="button" data-bs-target="##carousel-one" data-bs-slide-to="1"
+                                                <button type="button" data-bs-target="##carousel-${i+1}" data-bs-slide-to="1"
                                                         aria-label="Slide 2"></button>
-                                                <button type="button" data-bs-target="##carousel-one" data-bs-slide-to="2"
+                                                <button type="button" data-bs-target="##carousel-${i+1}" data-bs-slide-to="2"
                                                         aria-label="Slide 3"></button>
                         
                                             </div>
@@ -70,7 +70,7 @@ function get_feed() {
                                                 <!--                                캐러셀 아이템-->
                                                 <div class="carousel-item active">
                                                     <img class="carousel-img post_main_picture_img d-block w-100"
-                                                         src="{{url_for ('static', filename= ${i} )}}"
+                                                         src="https://on-winning.com/wp-content/uploads/2016/05/overwatch-heroes.jpg"
                                                          alt="...">
                                                 </div>
                                                 <div class="carousel-item">
@@ -87,13 +87,13 @@ function get_feed() {
                         
                                             <!--                7. 스토리카드 중단 이미지 넘기기 아이콘 div -->
                                             <div class="storycards_middle_next"
-                                                 data-bs-target="#carousel-one"
+                                                 data-bs-target="#carousel-${i+1}"
                                                  data-bs-slide="next">
                                                 <i class="fa-solid fa-circle-chevron-right btn_next"></i>
                                             </div>
                                             <!--                7. 스토리카드 중단 이미지 되돌리기 아이콘 div -->
                                             <div class="storycards_middle_prev"
-                                                 data-bs-target="#carousel-one"
+                                                 data-bs-target="#carousel-${i+1}"
                                                  data-bs-slide="prev">
                                                 <i class="fa-solid fa-circle-chevron-left btn_prev"></i>
                                             </div>
