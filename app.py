@@ -61,7 +61,7 @@ def api_login():
 
     pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()
 
-    result = db.user.find_one({'id': id_receive, 'pw': pw_hash})
+    result = db.user.find_one({'user_id': id_receive, 'hashed_password': pw_hash})
 
     if result is not None:
         payload = {
@@ -163,12 +163,14 @@ def show_mypage():
         return render_template('login.html')
 
 
-@app.route("/getPost", methods=['GET'])
+@app.route("/getFeed", methods=['GET'])
 def send_posts():
     users = db.user.find({})
     posts = []
     for user in users:
+        print(user)
         for post in user["posts"]:
+            print(post)
             post_data = {
                 "author_id": user["user_id"],
                 "post_img": post["img_title"],
