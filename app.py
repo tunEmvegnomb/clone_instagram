@@ -21,7 +21,7 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({"id": payload['id']})
+        user_info = db.user.find_one({"user_id": payload['user_id']})
         return render_template('main.html')
     except jwt.ExpiredSignatureError:
         # return redirect(url_for("show_login"))
@@ -283,6 +283,42 @@ def to_follow():
     db.user.update_one({'user_id': payload['user_id']}, {'$push': {'follow': doc_follow}}, upsert=True)
     db.user.update_one({'user_id': follow_id_receive}, {'$push': {'follower': doc_follower}}, upsert=True)
     return jsonify({'result': 'success', 'msg': '팔로우 완료'})
+
+
+@app.route('/comment/create', methods=['POST'])
+def write_comment():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    author_id_receive = request.form['author_id_give']
+    comment_receive = request.form['comment_give']
+    post_id_receive = request.form['post_id_give']
+    now = datetime.datetime.now()
+    time_now = now.strftime('%Y-%m-%d-%H-%M-%S')
+    
+    doc = {
+        'commenter_id': payload['user_id'],
+        'comment_article': comment_receive,
+        'comment_create_time': time_now,
+        'comment_update_time': None,
+        'like_comment': []
+    }
+    
+    db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}}, {'$push': {'comments.$': doc}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '댓글달기 완료'})
+
+
+@app.route('/like/post', methods=['POST'])
+def like_post():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+    author_id_receive = request.form['author_id_give']
+    post_id_receive = request.form['post_id_give']
+    
+    doc = payload['user_id']
+    
+    db.user.update_one({'user_id': author_id_receive, 'posts': {"$elemMatch": {'post_id': post_id_receive}}},
+                       {'$push': {'like_post_ids': doc}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '피드 좋아요 완료'})
 
 
 if __name__ == '__main__':
