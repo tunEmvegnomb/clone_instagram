@@ -36,6 +36,7 @@ doc = {
     "follower": [{"follower_id": "sample2", "follower_time": "2221-04-03-11-11-55"}, {"follower_id": "sample3", "follower_time": "2001-12-03-07-11-55"},{"follower_id": "sample5", "follower_time": "2000-03-23-01-01-55"}],
     "posts": [
         {
+            "post_id": "alkjsdlfjlasjdf",
             "post_create_time": "2012-03-03-22-11-55",
             "post_update_time": "2012-04-03-22-11-55",
             "img_title": "https://preview.pixlr.com/images/800wm/100/1/1001433950.jpg",

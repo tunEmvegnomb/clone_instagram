@@ -115,7 +115,6 @@ def api_valid():
 @app.route('/imageUpload', methods=['POST'])
 def input_image():
     token_receive = request.cookies.get('mytoken')
-    content_receive = request.form['content_give']
 
     payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
 
@@ -138,8 +137,11 @@ def input_image():
     #   파일을 static/img 에 저장
     file_receive.save(save_to)
 
+    post_id = hashlib.sha256((payload['user_id']+time_now).encode('utf-8')).hexdigest()
+
     #   파일 이름만 DB에 넣기
     doc = {
+        'post_id': post_id,
         'post_create_time': time_now,
         'img_title': save_to,
         'article': "uploading",
@@ -244,6 +246,7 @@ def send_posts():
                     comments = None
             
                 post_data = {
+                    "post_id": post["post_id"],
                     "author_id": user["user_id"],
                     "post_img": post["img_title"],
                     "article": post["article"],
