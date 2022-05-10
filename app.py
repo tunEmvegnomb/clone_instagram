@@ -178,6 +178,27 @@ def send_posts():
     return jsonify({"result": datas})
 
 
+@app.route('/follow', methods=['POST'])
+def to_follow():
+    token_receive = request.cookies.get('mytoken')
+    payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
+
+    follow_id_receive = request.form['follow_id_give']
+
+    now = datetime.datetime.now()
+    doc_follow = {
+            'follow_id': follow_id_receive,
+            'follow_time': now,
+    }
+    doc_follower = {
+            'follower_id': payload['user_id'],
+            'follower_time': now,
+    }
+
+    db.user.update_one({'user_id': payload['user_id']}, {'$push': {'follow': doc_follow}}, upsert=True)
+    db.user.update_one({'user_id': follow_id_receive}, {'$push': {'follower': doc_follower}}, upsert=True)
+    return jsonify({'result': 'success', 'msg': '팔로우 완료'})
+
 
 
 if __name__ == '__main__':
