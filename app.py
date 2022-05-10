@@ -21,7 +21,7 @@ def home():
     token_receive = request.cookies.get('mytoken')
     try:
         payload = jwt.decode(token_receive, SECRET_KEY, algorithms=['HS256'])
-        user_info = db.user.find_one({"id": payload['id']})
+        user_info = db.user.find_one({"user_id": payload['user_id']})
         return render_template('main.html')
     except jwt.ExpiredSignatureError:
         # return redirect(url_for("show_login"))
