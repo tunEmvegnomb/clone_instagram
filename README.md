@@ -29,7 +29,8 @@
     <img src="https://user-images.githubusercontent.com/100769423/166452826-c3351d4e-167c-4a76-b308-86addc8ca5b8.svg">
     <img src="https://user-images.githubusercontent.com/100769423/166452833-ebd8d65a-adcc-44c0-9ced-45d1856df862.svg">
 </div>
-
+<h2>🎞프로젝트 프레젠테이션</h2>
+    <li><a href="https://docs.google.com/presentation/d/1ibV-uanmKp_qkfBrdflvqezacYLgWSfYATj4gbUe_-0/edit?usp=sharing">Presentation Link</a></li>
 
 
 <h1><a href="https://github.com/tunEmvegnomb/clone_instagram/wiki">Github Wiki</a></h1>
